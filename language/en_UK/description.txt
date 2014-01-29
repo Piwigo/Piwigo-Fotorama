@@ -1,0 +1,1 @@
+Fotorama based full-screen slideshow.
