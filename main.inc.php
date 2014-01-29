@@ -74,7 +74,7 @@ function Fotorama_end_picture()
       {
         $row['derivative'] = $row['src_image'];
       }
-/*
+
       $row['url'] = duplicate_picture_url(
         array(
           'image_id' => $row['id'],
@@ -84,7 +84,7 @@ function Fotorama_end_picture()
           'start',
           )
         );
-*/
+
       $row['TITLE'] = render_element_name($row);
       $row['TITLE_ESC'] = str_replace('"', '&quot;', $row['TITLE']);
       $picture[] = $row;
