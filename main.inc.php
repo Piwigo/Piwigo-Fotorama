@@ -25,7 +25,7 @@ function Fotorama_init()
 }
 function Fotorama_end_picture()
 {
-  global $template, $conf, $user, $page, $refresh;
+  global $template, $conf, $user, $page;
 
   if ($page['slideshow'] and $conf['light_slideshow'])
   {
@@ -99,13 +99,16 @@ function Fotorama_end_picture()
 
 function Fotorama_end_page_header()
 {
-  global $template;
+  global $template, $conf, $page;
 
-  $template->clear_assign('page_refresh');
-  $template->clear_assign('first');
-  $template->clear_assign('previous');
-  $template->clear_assign('next');
-  $template->clear_assign('last');
+  if (isset($page['slideshow']) and $page['slideshow'] and $conf['light_slideshow'])
+  {
+    $template->clear_assign('page_refresh');
+    $template->clear_assign('first');
+    $template->clear_assign('previous');
+    $template->clear_assign('next');
+    $template->clear_assign('last');
+  }
 }
 
 ?>
