@@ -1,0 +1,1 @@
+Fotorama baseado em apresentação de slides em tela cheia.
