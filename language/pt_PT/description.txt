@@ -1,0 +1,1 @@
+Fotorama baseado na visualização de slides em écran completo.
