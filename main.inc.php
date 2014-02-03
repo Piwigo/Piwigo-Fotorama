@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Fotorama
-Version: 2.6.a
+Version: 2.6.d
 Description: Fotorama based full-screen slideshow
 Author: JanisV
 */
@@ -12,17 +12,28 @@ if (!defined('PHPWG_ROOT_PATH')) die('Hacking attempt!');
 
 if (mobile_theme()) return;
 
-define('FOTORAMA_PATH' , PHPWG_PLUGINS_PATH . basename(dirname(__FILE__)) . '/'); 
+define('FOTORAMA_ID',       basename(dirname(__FILE__)));
+define('FOTORAMA_PATH' ,    PHPWG_PLUGINS_PATH . FOTORAMA_ID . '/');
+define('FOTORAMA_ADMIN',    get_root_url() . 'admin.php?page=plugin-' . FOTORAMA_ID);
 
 add_event_handler('init', 'Fotorama_init');
+if (defined('IN_ADMIN'))
+{
+  add_event_handler('get_admin_plugin_menu_links', 'Fotorama_admin_menu');
+} 
 
 function Fotorama_init()
 {
-  global $conf, $user, $page;
+  global $conf;
   
+  load_language('plugin.lang', FOTORAMA_PATH);
+
+  $conf['Fotorama'] = unserialize($conf['Fotorama']);
+
   add_event_handler('loc_end_picture', 'Fotorama_end_picture');
   add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');
 }
+
 function Fotorama_end_picture()
 {
   global $template, $conf, $user, $page;
@@ -93,6 +104,7 @@ function Fotorama_end_picture()
     $template->assign('item_height', ImageStdParams::get_by_type($type)->max_height());
     $template->assign('items', $picture);
     $template->assign('current_rank', $page['current_rank']);
+    $template->assign(array('Fotorama' => $conf['Fotorama']));
     $template->set_filenames( array('slideshow' => realpath(FOTORAMA_PATH.'template/slideshow.tpl')));
   }
 }
@@ -109,6 +121,16 @@ function Fotorama_end_page_header()
     $template->clear_assign('next');
     $template->clear_assign('last');
   }
+}
+
+function Fotorama_admin_menu($menu)
+{
+  $menu[] = array(
+    'NAME' => 'Fotorama',
+    'URL'  => FOTORAMA_ADMIN,
+  );
+
+  return $menu;
 }
 
 ?>
