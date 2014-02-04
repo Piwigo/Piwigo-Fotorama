@@ -40,7 +40,6 @@
         // Listen to the events
         .on('fotorama:showend ',
             function (e, fotorama, extra) {
-              console.log('active frame', fotorama.activeFrame);
               history.replaceState(null, null, fotorama.activeFrame['url']+'&slideshow=');
               $('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
               $('#slideshow .showtitle').text(fotorama.activeFrame['title']);
