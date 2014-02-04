@@ -1,8 +1,9 @@
 <?php
 /*
 Plugin Name: Fotorama
-Version: 2.6.d
+Version: 2.6.e
 Description: Fotorama based full-screen slideshow
+Plugin URI: http://piwigo.org/ext/extension_view.php?eid=727
 Author: JanisV
 */
 
