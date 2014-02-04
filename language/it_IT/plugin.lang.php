@@ -21,4 +21,11 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'Stop a slideshow';
+$lang['What transition to use'] = 'Quale transizione utilizzare';
+$lang['Navigation style'] = 'Stile di navigazione';
+$lang['How to fit an image'] = 'Come inserire un\'immagine';
+$lang['Enables shadows'] = 'Consenti ombre';
+$lang['Enables loop'] = 'Consenti ciclo';
+$lang['Enables autoplay'] = 'Abilita autoplay';
+$lang['Allows fullscreen'] = 'Consenti a schermo intero';
 ?>
