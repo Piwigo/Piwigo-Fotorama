@@ -18,6 +18,8 @@ if (isset($_POST['submit']))
     $conf['Fotorama']['fit'] = $_POST['fit'];
   if (isset($_POST['transition']))
     $conf['Fotorama']['transition'] = $_POST['transition'];
+  if (isset($_POST['nav']))
+    $conf['Fotorama']['nav'] = $_POST['nav'];
 
   conf_update_param('Fotorama', serialize($conf['Fotorama']));
   $page['infos'][] = l10n('Information data registered in database');

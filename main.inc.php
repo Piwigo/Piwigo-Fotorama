@@ -83,7 +83,12 @@ function Fotorama_end_picture()
       $row['derivative_big'] = DerivativeImage::get_one($big_type, $row['src_image']);
       if ($row['derivative_big'] == null)
       {
-        $row['derivative'] = $row['src_image'];
+        $row['derivative_big'] = $row['src_image'];
+      }
+      $row['derivative_thumb'] = DerivativeImage::get_one(IMG_SQUARE, $row['src_image']);
+      if ($row['derivative_thumb'] == null)
+      {
+        $row['derivative_thumb'] = $row['src_image'];
       }
 
       $row['url'] = duplicate_picture_url(

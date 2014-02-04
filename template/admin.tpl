@@ -9,7 +9,7 @@
 <ul>
   <li>
     <label for="allowfullscreen">
-      <b>{'allowfullscreen'|@translate}</b> 
+      <b>{'Allows fullscreen'|@translate}</b> 
     </label>
     <select class="categoryDropDown" id="allowfullscreen" name="allowfullscreen">
       <option value="false"{if $Fotorama.allowfullscreen == 'false'} selected{/if}>{'false'|@translate}</option>
@@ -19,7 +19,7 @@
   </li>
   <li>
     <label for="fit">
-      <b>{'fit'|@translate}</b> 
+      <b>{'How to fit an image'|@translate}</b> 
     </label>
     <select class="categoryDropDown" id="fit" name="fit">
       <option value="contain"{if $Fotorama.fit == 'contain'} selected{/if}>{'contain'|@translate}</option>
@@ -30,7 +30,7 @@
   </li>
   <li>
     <label for="transition">
-      <b>{'transition'|@translate}</b> 
+      <b>{'What transition to use'|@translate}</b> 
     </label>
     <select class="categoryDropDown" id="transition" name="transition">
       <option value="slide"{if $Fotorama.transition == 'slide'} selected{/if}>{'slide'|@translate}</option>
@@ -39,27 +39,37 @@
     </select>
   </li>
   <li>
+    <label for="nav">
+      <b>{'Navigation style'|@translate}</b> 
+    </label>
+    <select class="categoryDropDown" id="nav" name="nav">
+      <option value="false"{if $Fotorama.nav == 'false'} selected{/if}>{'false'|@translate}</option>
+      <option value="dots"{if $Fotorama.nav == 'dots'} selected{/if}>{'dots'|@translate}</option>
+      <option value="thumbs"{if $Fotorama.nav == 'thumbs'} selected{/if}>{'thumbs'|@translate}</option>
+    </select>
+  </li>
+  <li>
     <input type="checkbox" id="shadows" name="shadows"{if $Fotorama.shadows} checked="checked"{/if}>
     <label for="shadows">
-      <b>{'shadows'|@translate}</b>
+      <b>{'Enables shadows'|@translate}</b>
     </label>
   </li>
   <li>
     <input type="checkbox" id="autoplay" name="autoplay"{if $Fotorama.autoplay} checked="checked"{/if}>
     <label for="autoplay">
-      <b>{'autoplay'|@translate}</b>
+      <b>{'Enables autoplay'|@translate}</b>
     </label>
   </li>
   <li>
     <input type="checkbox" id="stopautoplayontouch" name="stopautoplayontouch"{if $Fotorama.stopautoplayontouch} checked="checked"{/if}>
     <label for="stopautoplayontouch">
-      <b>{'stopautoplayontouch'|@translate}</b>
+      <b>{'Stops slideshow at any user action with the fotorama'|@translate}</b>
     </label>
   </li>
   <li>
     <input type="checkbox" id="loop" name="loop"{if $Fotorama.loop} checked="checked"{/if}>
     <label for="loop">
-      <b>{'loop'|@translate}</b>
+      <b>{'Enables loop'|@translate}</b>
     </label>
   </li>
 </ul>
