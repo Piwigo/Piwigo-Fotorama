@@ -21,4 +21,12 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'apturēt slaidrādi';
+$lang['Stops slideshow at any user action with the fotorama'] = 'Aptur slaidrādi pie jebkuras lietotāja darbības ar fotorama';
+$lang['What transition to use'] = 'Kādu pāreju izmantot';
+$lang['How to fit an image'] = 'Kā pielāgot attēlu';
+$lang['Navigation style'] = 'Navigācijas stils';
+$lang['Enables shadows'] = 'Iespējo ēnas';
+$lang['Enables loop'] = 'Iespējo atkārtojumu';
+$lang['Enables autoplay'] = 'Iespējo auto atskaņošanu';
+$lang['Allows fullscreen'] = 'Atļauj pilnu ekrānu';
 ?>
