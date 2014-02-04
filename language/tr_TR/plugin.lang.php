@@ -21,4 +21,12 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'slayt gösterisini durdur';
+$lang['Allows fullscreen'] = 'Tam ekrana izin verir';
+$lang['Enables autoplay'] = 'Otomatik yürütmeyi etkinleştirir';
+$lang['Enables loop'] = 'Döngüyü etkinleştirir';
+$lang['Enables shadows'] = 'Gölgeleri etkinleştirir';
+$lang['How to fit an image'] = 'Görüntü nasıl sığdırılsın';
+$lang['Navigation style'] = 'Gezinme tipi';
+$lang['Stops slideshow at any user action with the fotorama'] = 'Fotorama ile herhangi bir kullanıcı eylemi ile slaytı durdurur';
+$lang['What transition to use'] = 'Geçiş nasıl olsun';
 ?>
