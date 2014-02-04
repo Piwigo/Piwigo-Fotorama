@@ -20,5 +20,13 @@
 // | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
-$lang['stop the slideshow'] = 'zastaviť slodeshow';
+$lang['stop the slideshow'] = 'zastaviť slideshow';
+$lang['How to fit an image'] = 'Ako prispôsobiť veľkosť fotky';
+$lang['Stops slideshow at any user action with the fotorama'] = 'Zastaví slideshow po zásahu užívateľa s fotorama';
+$lang['What transition to use'] = 'Aký prechod sa používa';
+$lang['Allows fullscreen'] = 'Umožniť na celú obrazovku';
+$lang['Navigation style'] = 'Navigačný štýl';
+$lang['Enables loop'] = 'Povoliť opakovanie';
+$lang['Enables shadows'] = 'Povoliť tieňovanie';
+$lang['Enables autoplay'] = 'Povoliť autoprehrávanie';
 ?>
