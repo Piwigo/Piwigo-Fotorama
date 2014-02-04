@@ -21,4 +21,12 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'Slideshow stoppen';
+$lang['Stops slideshow at any user action with the fotorama'] = 'Stoppt die Diashow bei jeder Aktion des Benutzers mit Fotorama';
+$lang['What transition to use'] = 'Welcher Übergangseffekt soll benutzt werden';
+$lang['Allows fullscreen'] = 'Erlaube Vollbild';
+$lang['Enables autoplay'] = 'Automatisches abspielen einschalten';
+$lang['Enables loop'] = 'Wiederholungsschleifen einschalten';
+$lang['Enables shadows'] = 'Schatten einschalten';
+$lang['How to fit an image'] = 'Wie soll das Bild angepasst werden';
+$lang['Navigation style'] = 'Navigationsoptik';
 ?>
