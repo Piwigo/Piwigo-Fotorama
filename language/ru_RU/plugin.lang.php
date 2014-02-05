@@ -3,7 +3,7 @@
 $lang['stop the slideshow'] = 'остановить слайдшоу';
 $lang['Allows fullscreen'] = 'Разворачивать на весь экран';
 $lang['How to fit an image'] = 'Как уместить изображение';
-$lang['What transition to use'] = 'Используемыйстиль перехода';
+$lang['What transition to use'] = 'Используемый стиль перехода';
 $lang['Navigation style'] = 'Стиль навигации';
 $lang['Enables shadows'] = 'Включить тени';
 $lang['Enables autoplay'] = 'Включить автозапуск';
