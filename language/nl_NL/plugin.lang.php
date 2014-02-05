@@ -21,4 +21,12 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'stop de diapresentatie';
+$lang['How to fit an image'] = 'Hoe een afbeelding passend te maken';
+$lang['Stops slideshow at any user action with the fotorama'] = 'Diapresentatie wordt afgebroken door elke actie van gebruiker met de Fotorama';
+$lang['Enables shadows'] = 'Schaduwen aanzetten';
+$lang['Enables loop'] = 'Lus aanzetten';
+$lang['Enables autoplay'] = 'Automatisch afspelen aanzetten';
+$lang['What transition to use'] = 'Welke overgang te gebruiken';
+$lang['Navigation style'] = 'Navigatie stijl';
+$lang['Allows fullscreen'] = 'Volledig scherm toegelaten';
 ?>
