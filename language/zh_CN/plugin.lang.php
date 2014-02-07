@@ -21,4 +21,12 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = '停止幻灯片';
+$lang['How to fit an image'] = '如何适应一幅图像';
+$lang['Navigation style'] = '导航方式';
+$lang['Stops slideshow at any user action with the fotorama'] = '发生任何动作时停止幻灯片播放';
+$lang['What transition to use'] = '使用哪个过场方式';
+$lang['Enables autoplay'] = '开启自动播放';
+$lang['Enables loop'] = '开启循环';
+$lang['Enables shadows'] = '开启阴影';
+$lang['Allows fullscreen'] = '允许全屏';
 ?>
