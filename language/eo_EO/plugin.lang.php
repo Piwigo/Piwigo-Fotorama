@@ -21,4 +21,12 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'haltigi la lumbildan prezenton';
+$lang['Allows fullscreen'] = 'Permesas tutekranan reĝimon';
+$lang['Enables autoplay'] = 'Ebligas memstarton';
+$lang['Enables loop'] = 'Ebligas iteracion';
+$lang['Enables shadows'] = 'Ebligas ombrojn';
+$lang['How to fit an image'] = 'Kiel adapti bildon';
+$lang['Navigation style'] = 'Navigada stilo';
+$lang['Stops slideshow at any user action with the fotorama'] = 'Ĉesigi la lumbildan prezenton je iu ajn ago de la uzanto ';
+$lang['What transition to use'] = 'Kia transpaso uzi';
 ?>
