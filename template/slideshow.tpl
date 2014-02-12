@@ -43,7 +43,7 @@ var image_h = {/literal}{$item_height}{literal}
 
 {footer_script require='jquery'}{literal}
   var fullscreen = false;
-  jQuery().ready(function() { 
+  jQuery().ready(function() {
     jQuery('.fotorama')
         // Listen to the events
         .on('fotorama:showend ',
@@ -70,6 +70,10 @@ var image_h = {/literal}{$item_height}{literal}
         )
         .on('fotorama:fullscreenexit',
             function (e, fotorama, extra) {
+              {/literal}{if $Fotorama['only_fullscreen']}{literal}
+              window.location.replace(fotorama.activeFrame['url']);
+              {/literal}{else}{literal}
+
               fotorama.setOptions({
                 nav: "{/literal}{$Fotorama['nav']}{literal}"
               });
@@ -81,9 +85,14 @@ var image_h = {/literal}{$item_height}{literal}
               document.title = fotorama.activeFrame['title'] + ' | {/literal}{$GALLERY_TITLE}{literal}';
 
               fullscreen = false;
+              {/literal}{/if}{literal}
             }
         )
         // Initialize fotorama manually
         .fotorama();
+      
+      {/literal}{if $Fotorama['only_fullscreen']}{literal}
+      jQuery('.fotorama').data('fotorama').requestFullScreen();
+      {/literal}{/if}{literal}
   });
 {/literal}{/footer_script}

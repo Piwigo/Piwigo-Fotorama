@@ -18,6 +18,12 @@
     </select>
   </li>
   <li>
+    <input type="checkbox" id="only_fullscreen" name="only_fullscreen"{if $Fotorama.only_fullscreen} checked="checked"{/if}>
+    <label for="only_fullscreen">
+      <b>{'Only fullscreen mode'|@translate}</b>
+    </label>
+  </li>
+  <li>
     <label for="fit">
       <b>{'How to fit an image'|@translate}</b> 
     </label>

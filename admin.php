@@ -8,6 +8,7 @@ if (isset($_POST['submit']))
 {
   $conf['Fotorama'] = array(
     'shadows' => isset($_POST['shadows']),
+    'only_fullscreen' => isset($_POST['only_fullscreen']),
     'autoplay' => isset($_POST['autoplay']),
     'stopautoplayontouch' => isset($_POST['stopautoplayontouch']),
     'loop' => isset($_POST['loop']),
