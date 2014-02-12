@@ -20,13 +20,15 @@
 // | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
-$lang['stop the slideshow'] = 'stop de diapresentatie';
-$lang['How to fit an image'] = 'Hoe een afbeelding passend te maken';
+$lang['stop the slideshow'] = 'Stop de diapresentatie';
+$lang['How to fit an image'] = 'Hoe een afbeelding passend maken';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Diapresentatie wordt afgebroken door elke actie van gebruiker met de Fotorama';
 $lang['Enables shadows'] = 'Schaduwen aanzetten';
-$lang['Enables loop'] = 'Lus aanzetten';
+$lang['Enables loop'] = 'Herhaling aanzetten';
 $lang['Enables autoplay'] = 'Automatisch afspelen aanzetten';
-$lang['What transition to use'] = 'Welke overgang te gebruiken';
-$lang['Navigation style'] = 'Navigatie stijl';
-$lang['Allows fullscreen'] = 'Volledig scherm toegelaten';
+$lang['What transition to use'] = 'Welke overgang gebruiken';
+$lang['Navigation style'] = 'Navigatie-stijl';
+$lang['Allows fullscreen'] = 'Gebruik volledig scherm toelaten';
+$lang['Fullscreen navigation style'] = 'Volledig scherm navigatie-stijl';
+$lang['Only fullscreen mode'] = 'Alleen volledig scherm modus';
 ?>
