@@ -29,4 +29,6 @@ $lang['How to fit an image'] = 'Görüntü nasıl sığdırılsın';
 $lang['Navigation style'] = 'Gezinme tipi';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Fotorama ile herhangi bir kullanıcı eylemi ile slaytı durdurur';
 $lang['What transition to use'] = 'Geçiş nasıl olsun';
+$lang['Fullscreen navigation style'] = 'Tam ekran gezinme stili';
+$lang['Only fullscreen mode'] = 'Sadece tam ekran modu';
 ?>
