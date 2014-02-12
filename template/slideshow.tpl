@@ -33,7 +33,7 @@ var image_h = {/literal}{$item_height}{literal}
       {foreach from=$items item=thumbnail}
         <a href="{$thumbnail['derivative']->get_url()}"
           data-full="{$thumbnail['derivative_big']->get_url()}" data-url="{$thumbnail['url']}" data-title="{$thumbnail['TITLE']}">
-          {if $Fotorama['nav'] == 'thumbs'}<img src="{$thumbnail['derivative_thumb']->get_url()}">{/if}
+          {if $Fotorama['nav'] == 'thumbs' || $Fotorama['fullscreen_nav'] == 'thumbs'}<img src="{$thumbnail['derivative_thumb']->get_url()}">{/if}
         </a>
       {/foreach}
       </div>
@@ -59,19 +59,28 @@ var image_h = {/literal}{$item_height}{literal}
         )
         .on('fotorama:fullscreenenter',
             function (e, fotorama, extra) {
-              fullscreen = true;
+              fotorama.setOptions({
+                nav: "{/literal}{$Fotorama['fullscreen_nav']}{literal}"
+              });
               fotorama.startAutoplay();
+
+              if (jQuery('.fotorama').attr('data-allowfullscreen') == 'native')
+                fullscreen = true;
             }
         )
         .on('fotorama:fullscreenexit',
             function (e, fotorama, extra) {
-              fullscreen = false;
+              fotorama.setOptions({
+                nav: "{/literal}{$Fotorama['nav']}{literal}"
+              });
 
               history.replaceState(null, null, fotorama.activeFrame['url']+'&slideshow=');
               jQuery('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
               jQuery('#slideshow .showtitle').text(fotorama.activeFrame['title']);
               jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/'+{/literal}{count($items)}{literal});
               document.title = fotorama.activeFrame['title'] + ' | {/literal}{$GALLERY_TITLE}{literal}';
+
+              fullscreen = false;
             }
         )
         // Initialize fotorama manually

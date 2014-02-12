@@ -9,5 +9,6 @@ $lang['Enables shadows'] = 'Enables shadows';
 $lang['Enables autoplay'] = 'Enables autoplay';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Stops slideshow at any user action with the fotorama';
 $lang['Enables loop'] = 'Enables loop';
+$lang['Fullscreen navigation style'] = 'Fullscreen navigation style';
 
 ?>

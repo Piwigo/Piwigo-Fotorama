@@ -49,6 +49,16 @@
     </select>
   </li>
   <li>
+    <label for="fullscreen_nav">
+      <b>{'Fullscreen navigation style'|@translate}</b> 
+    </label>
+    <select class="categoryDropDown" id="fullscreen_nav" name="fullscreen_nav">
+      <option value="false"{if $Fotorama.fullscreen_nav == 'false'} selected{/if}>{'false'|@translate}</option>
+      <option value="dots"{if $Fotorama.fullscreen_nav == 'dots'} selected{/if}>{'dots'|@translate}</option>
+      <option value="thumbs"{if $Fotorama.fullscreen_nav == 'thumbs'} selected{/if}>{'thumbs'|@translate}</option>
+    </select>
+  </li>
+  <li>
     <input type="checkbox" id="shadows" name="shadows"{if $Fotorama.shadows} checked="checked"{/if}>
     <label for="shadows">
       <b>{'Enables shadows'|@translate}</b>

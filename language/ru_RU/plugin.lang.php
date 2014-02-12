@@ -9,5 +9,6 @@ $lang['Enables shadows'] = 'Включить тени';
 $lang['Enables autoplay'] = 'Включить автозапуск';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Останавливать слайдшоу при любом действии пользователя с Fotorama';
 $lang['Enables loop'] = 'Показывать в цикле';
+$lang['Fullscreen navigation style'] = 'Стиль навигации в полноэкранном режиме';
 
 ?>

@@ -15,6 +15,7 @@ class Fotorama_maintain extends PluginMaintain
     'stopautoplayontouch' => false,
     'loop' => true,
     'nav' => 'false',
+    'fullscreen_nav' => 'false',
   );
 
   function __construct($plugin_id)
