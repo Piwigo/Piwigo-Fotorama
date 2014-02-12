@@ -29,4 +29,6 @@ $lang['How to fit an image'] = 'Como encaixar uma imagem';
 $lang['Navigation style'] = 'Estilo de navegação';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Pára a amostra de slides a qualquer ação do utilizador com o Fotorama';
 $lang['What transition to use'] = 'Que transição a usar';
+$lang['Fullscreen navigation style'] = 'Modo tela cheia';
+$lang['Only fullscreen mode'] = 'Apenas tela cheia';
 ?>
