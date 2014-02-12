@@ -29,4 +29,6 @@ $lang['Enables shadows'] = 'Iespējo ēnas';
 $lang['Enables loop'] = 'Iespējo atkārtojumu';
 $lang['Enables autoplay'] = 'Iespējo auto atskaņošanu';
 $lang['Allows fullscreen'] = 'Atļauj pilnu ekrānu';
+$lang['Only fullscreen mode'] = 'Tikai pilnekrāna režīms';
+$lang['Fullscreen navigation style'] = 'Pilnekrāna navigācijas stils';
 ?>
