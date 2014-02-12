@@ -29,4 +29,6 @@ $lang['Enables shadows'] = 'Aktiver skygger';
 $lang['Enables loop'] = 'Aktiver sløjfe';
 $lang['Enables autoplay'] = 'Aktiver autostart';
 $lang['Allows fullscreen'] = 'Tillad fuldskærm';
+$lang['Fullscreen navigation style'] = 'Navigeringsstil i fuldskærmstilstand';
+$lang['Only fullscreen mode'] = 'Kun fuldskærmstilstand';
 ?>
