@@ -21,4 +21,14 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'ustavi predvajanje';
+$lang['Allows fullscreen'] = 'Omogoča celozaslonsko';
+$lang['Enables autoplay'] = 'Omogoča samodejno predvajanje';
+$lang['Enables loop'] = 'Omogoča ponavljanje';
+$lang['Enables shadows'] = 'Omogoča senčenje';
+$lang['Fullscreen navigation style'] = 'Celozaslonski slog navigacije';
+$lang['How to fit an image'] = 'Kako prilagoditi sliko';
+$lang['Navigation style'] = 'Slog navigacije';
+$lang['Only fullscreen mode'] = 'Samo celozaslonski način';
+$lang['Stops slideshow at any user action with the fotorama'] = 'Ob vsakem dejanju uporabnika ustavi diaprojekcijo ';
+$lang['What transition to use'] = 'Kateri način prehoda naj se uporabi';
 ?>
