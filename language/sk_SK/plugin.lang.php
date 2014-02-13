@@ -29,4 +29,6 @@ $lang['Navigation style'] = 'Navigačný štýl';
 $lang['Enables loop'] = 'Povoliť opakovanie';
 $lang['Enables shadows'] = 'Povoliť tieňovanie';
 $lang['Enables autoplay'] = 'Povoliť autoprehrávanie';
+$lang['Fullscreen navigation style'] = 'Navigačný štýl pre celú obrazovku';
+$lang['Only fullscreen mode'] = 'Len celoobrazovkový mód';
 ?>
