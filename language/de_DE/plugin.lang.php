@@ -29,4 +29,6 @@ $lang['Enables loop'] = 'Wiederholungsschleifen einschalten';
 $lang['Enables shadows'] = 'Schatten einschalten';
 $lang['How to fit an image'] = 'Wie soll das Bild angepasst werden';
 $lang['Navigation style'] = 'Navigationsoptik';
+$lang['Fullscreen navigation style'] = 'Vollbildnavigationsstil ';
+$lang['Only fullscreen mode'] = 'Nur Vollbild Modus';
 ?>
