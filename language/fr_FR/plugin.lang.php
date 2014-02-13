@@ -29,4 +29,6 @@ $lang['Enables autoplay'] = 'Démarrage automatique de la lecture';
 $lang['Enables loop'] = 'Lecture en boucle';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Arrêter le diaporamam sur n\'importe quelle action';
 $lang['What transition to use'] = 'Transition à utiliser';
+$lang['Fullscreen navigation style'] = 'Style de la navigation plein écran';
+$lang['Only fullscreen mode'] = 'Mode plein écran seulement';
 ?>
