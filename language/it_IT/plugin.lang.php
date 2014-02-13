@@ -29,4 +29,6 @@ $lang['Enables loop'] = 'Consenti ciclo';
 $lang['Enables autoplay'] = 'Abilita autoplay';
 $lang['Allows fullscreen'] = 'Consenti a schermo intero';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Ferma slideshow con qualsiasi azione dell\'utente con fotorama';
+$lang['Only fullscreen mode'] = 'Solo modo schermo intero';
+$lang['Fullscreen navigation style'] = 'Stile di navigazione a schermo intero';
 ?>
