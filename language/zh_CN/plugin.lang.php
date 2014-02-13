@@ -29,4 +29,6 @@ $lang['Enables autoplay'] = '开启自动播放';
 $lang['Enables loop'] = '开启循环';
 $lang['Enables shadows'] = '开启阴影';
 $lang['Allows fullscreen'] = '允许全屏';
+$lang['Fullscreen navigation style'] = '全屏导航样式';
+$lang['Only fullscreen mode'] = '只在全屏模式';
 ?>
