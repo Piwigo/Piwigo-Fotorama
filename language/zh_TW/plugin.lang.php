@@ -29,4 +29,6 @@ $lang['Navigation style'] = '導航式';
 $lang['What transition to use'] = '相片切換特效';
 $lang['stop the slideshow'] = '停止幻燈片放映';
 $lang['Stops slideshow at any user action with the fotorama'] = 'fotorama在任何用戶動作後停止幻燈片';
+$lang['Fullscreen navigation style'] = '全屏導航風格';
+$lang['Only fullscreen mode'] = '只有全屏模式';
 ?>
