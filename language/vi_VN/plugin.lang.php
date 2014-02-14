@@ -29,4 +29,6 @@ $lang['Navigation style'] = 'Cách tương tác';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Dừng trình chiếu khi có tương tác hình ảnh bất kỳ';
 $lang['What transition to use'] = 'Hiệu ứng chuyển hình';
 $lang['stop the slideshow'] = 'dừng trình chiếu';
+$lang['Fullscreen navigation style'] = 'Kiểu thao tác toàn màn hình';
+$lang['Only fullscreen mode'] = 'Chỉ chế độ toàn màn hình';
 ?>
