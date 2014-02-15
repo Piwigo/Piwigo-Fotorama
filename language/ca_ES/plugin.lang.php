@@ -29,4 +29,6 @@ $lang['Allows fullscreen'] = 'Permetre pantalla completa';
 $lang['Enables autoplay'] = 'Permetre la reproducció automàtica';
 $lang['Enables loop'] = 'Premetre bucle';
 $lang['Enables shadows'] = 'Permetre ombres';
+$lang['Fullscreen navigation style'] = 'Estil de navegació a pantalla completa';
+$lang['Only fullscreen mode'] = 'Només mode de pantalla completa';
 ?>
