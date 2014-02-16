@@ -29,4 +29,6 @@ $lang['How to fit an image'] = 'Kiel adapti bildon';
 $lang['Navigation style'] = 'Navigada stilo';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Ĉesigi la lumbildan prezenton je iu ajn ago de la uzanto ';
 $lang['What transition to use'] = 'Kia transpaso uzi';
+$lang['Fullscreen navigation style'] = 'Stilo laŭ tutekrana navigado';
+$lang['Only fullscreen mode'] = 'Nur tutekrana modo';
 ?>
