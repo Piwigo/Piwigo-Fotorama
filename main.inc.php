@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Fotorama
-Version: 2.6.g
+Version: 2.6.h
 Description: Fotorama based full-screen slideshow
 Plugin URI: http://piwigo.org/ext/extension_view.php?eid=727
 Author: JanisV

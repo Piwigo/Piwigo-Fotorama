@@ -96,3 +96,35 @@
   <input type="submit" name="submit" value="{'Save Settings'|@translate}">
 </p>
 </form>
+
+{footer_script require='jquery'}{literal}
+  function update_Fotorama_state() {
+    if (jQuery('#allowfullscreen').val() == "false") {
+      jQuery('#only_fullscreen').prop('disabled', true);
+      jQuery('#only_fullscreen').removeAttr('checked');
+      jQuery('#nav').prop('disabled', false);
+      jQuery('#fullscreen_nav').prop('disabled', true);
+    }
+    else {
+      jQuery('#only_fullscreen').prop('disabled', false);
+      jQuery('#fullscreen_nav').prop('disabled', false);
+    }
+
+    if(jQuery('#only_fullscreen').is(":checked")) {
+      jQuery('#nav').prop('disabled', true);
+    }
+    else {
+      jQuery('#nav').prop('disabled', false);
+    }
+  }
+  jQuery().ready(function() {
+    update_Fotorama_state();
+  });
+  jQuery('#allowfullscreen').change(function() {
+    update_Fotorama_state();
+  });
+  jQuery('#only_fullscreen').change(function() {
+    update_Fotorama_state();
+  });
+  
+{/literal}{/footer_script}
