@@ -21,4 +21,14 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'Διακοπή της Παρουσίασης';
+$lang['What transition to use'] = 'Τι μετάβαση να χρησιμοποιηθεί ';
+$lang['Stops slideshow at any user action with the fotorama'] = 'Σταματά το slideshow με κάθε ενέργεια του χρήστη με την FOTORAMA';
+$lang['Only fullscreen mode'] = 'Μόνο λειτουργία πλήρους οθόνης';
+$lang['Navigation style'] = 'Στυλ πλοήγησης';
+$lang['How to fit an image'] = 'Πώς να χωρέσει μια εικόνα';
+$lang['Fullscreen navigation style'] = 'Fullscreen στυλ πλοήγησης';
+$lang['Enables shadows'] = 'Ενεργοποιεί τις σκιές';
+$lang['Enables loop'] = 'Επιτρέπει loop';
+$lang['Enables autoplay'] = 'Επιτρέπει autoplay';
+$lang['Allows fullscreen'] = 'Επιτρέπει πλήρη οθόνη';
 ?>
