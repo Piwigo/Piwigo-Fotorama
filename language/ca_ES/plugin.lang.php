@@ -27,8 +27,7 @@ $lang['How to fit an image'] = 'Com ajustar una imatge';
 $lang['Navigation style'] = 'Estil de navegació';
 $lang['Allows fullscreen'] = 'Permet el mode de pantalla completa';
 $lang['Enables autoplay'] = 'Permet la reproducció automàtica';
-$lang['Enables loop'] = 'Premet la reproducció en bucle';
+$lang['Enables loop'] = 'Permet la reproducció en bucle';
 $lang['Enables shadows'] = 'Permet ombres';
 $lang['Fullscreen navigation style'] = 'Estil de navegació a pantalla completa';
 $lang['Only fullscreen mode'] = 'Només mode de pantalla completa';
-?>
