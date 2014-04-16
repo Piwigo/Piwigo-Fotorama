@@ -29,6 +29,5 @@ $lang['Navigation style'] = 'استیالِ جابجایی بینِ عکس‌ه�
 $lang['Only fullscreen mode'] = 'تنها در حالتِ تمام صفحه';
 $lang['Stops slideshow at any user action with the fotorama'] = 'توقف نمایش به صورت اسلاید با انجامِ هر کاری از سوی کاربر با fotorama';
 $lang['stop the slideshow'] = 'توقف اسلاید شو';
-$lang['How to fit an image'] = 'متناسب کردن تصویر ';
-$lang['What transition to use'] = 'اعمال افکت ';
-?>
+$lang['How to fit an image'] = 'چگونگی متناسب شدنِ عکس';
+$lang['What transition to use'] = 'چه افکتی بکار برود';
