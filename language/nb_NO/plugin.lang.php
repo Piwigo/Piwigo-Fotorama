@@ -21,4 +21,7 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'stopp lysbildefremvisning';
-?>
+$lang['Enables shadows'] = 'Aktiverer skygge';
+$lang['Enables loop'] = 'Aktiverer sløyfe';
+$lang['Enables autoplay'] = 'Aktiverer autostart';
+$lang['Allows fullscreen'] = 'Tillater fullskjerm';
