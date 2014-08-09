@@ -21,4 +21,13 @@
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'спри слайд прегледа';
-?>
+$lang['What transition to use'] = 'Какъв преход да използва';
+$lang['Stops slideshow at any user action with the fotorama'] = 'Спира слайдшоуто при всяко действие на потребителя с fotorama';
+$lang['Only fullscreen mode'] = 'Само пълноекранен режим';
+$lang['Navigation style'] = 'Навигационен стил';
+$lang['How to fit an image'] = 'Как да се побере изображението';
+$lang['Fullscreen navigation style'] = 'Стил на управление в цял екран';
+$lang['Enables shadows'] = 'Разрешени сянки';
+$lang['Enables loop'] = 'Разрешен контур';
+$lang['Enables autoplay'] = 'Разрешен автостарт';
+$lang['Allows fullscreen'] = 'Позволи цял екран';
