@@ -111,7 +111,14 @@ function Fotorama_end_picture()
     $template->assign('items', $picture);
     $template->assign('current_rank', $page['current_rank']);
     $template->assign(array('Fotorama' => $conf['Fotorama']));
-    $template->set_filenames( array('slideshow' => realpath(FOTORAMA_PATH.'template/slideshow.tpl')));
+    if (is_file('./themes/'.$user['theme'].'/template/fotorama.tpl'))
+    {
+      $template->set_filenames( array('slideshow' => realpath('./themes/'.$user['theme'].'/template/fotorama.tpl')));
+    }
+    else
+    {
+      $template->set_filenames( array('slideshow' => realpath(FOTORAMA_PATH.'template/slideshow.tpl')));
+    }
   }
 }
 
