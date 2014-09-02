@@ -111,6 +111,10 @@
       jQuery('#nav').prop('disabled', false);
       jQuery('#fullscreen_nav').prop('disabled', true);
     }
+    else if {
+      jQuery('#only_fullscreen').prop('disabled', true);
+      jQuery('#only_fullscreen').removeAttr('checked');
+    }
     else {
       jQuery('#only_fullscreen').prop('disabled', false);
       jQuery('#fullscreen_nav').prop('disabled', false);
