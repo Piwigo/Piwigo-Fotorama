@@ -111,7 +111,7 @@
       jQuery('#nav').prop('disabled', false);
       jQuery('#fullscreen_nav').prop('disabled', true);
     }
-    else if {
+    else if (jQuery('#allowfullscreen').val() == "native") {
       jQuery('#only_fullscreen').prop('disabled', true);
       jQuery('#only_fullscreen').removeAttr('checked');
     }
