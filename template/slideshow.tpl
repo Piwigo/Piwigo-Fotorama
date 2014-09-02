@@ -26,10 +26,10 @@ var image_h = {/literal}{$item_height}{literal}
 	<div id="theImage">
       <div class="fotorama" data-startindex="{$current_rank}" data-ratio="16/9" data-auto="false"
         data-width="100%" data-maxheight="100%" data-minheight="200" data-height="{$item_height}"
-        data-shadows="{$Fotorama['shadows']}" data-nav="{$Fotorama['nav']}" data-fit="{$Fotorama['fit']}"
+        data-shadows="{if $Fotorama['shadows']}true{else}false{/if}" data-nav="{$Fotorama['nav']}" data-fit="{$Fotorama['fit']}"
         data-allowfullscreen="{$Fotorama['allowfullscreen']}" data-autoplay="{if $Fotorama['autoplay']}true{else}false{/if}"
-        data-transition="{$Fotorama['transition']}" data-stopautoplayontouch="{$Fotorama['stopautoplayontouch']}"
-        data-loop="{$Fotorama['stopautoplayontouch']}">
+        data-transition="{$Fotorama['transition']}" data-stopautoplayontouch="{if $Fotorama['stopautoplayontouch']}true{else}false{/if}"
+        data-loop="{if $Fotorama['loop']}true{else}false{/if}">
       {foreach from=$items item=thumbnail}
         <a href="{$thumbnail['derivative']->get_url()}"
           data-full="{$thumbnail['derivative_big']->get_url()}" data-url="{$thumbnail['url']}" data-title="{$thumbnail['TITLE']}">
