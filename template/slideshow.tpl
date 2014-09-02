@@ -32,7 +32,7 @@ var image_h = {/literal}{$item_height}{literal}
         data-loop="{if $Fotorama['loop']}true{else}false{/if}">
       {foreach from=$items item=thumbnail}
         <a href="{$thumbnail['derivative']->get_url()}"
-          data-full="{$thumbnail['derivative_big']->get_url()}" data-url="{$thumbnail['url']}" data-title="{$thumbnail['TITLE']}">
+          data-full="{$thumbnail['derivative_big']->get_url()}" data-url="{$thumbnail['url']}" data-title="{$thumbnail['TITLE']}"{if $Fotorama['enable_caption']} data-caption="{$thumbnail['TITLE']}"{/if}>
           {if $Fotorama['nav'] == 'thumbs' || $Fotorama['fullscreen_nav'] == 'thumbs'}<img src="{$thumbnail['derivative_thumb']->get_url()}">{/if}
         </a>
       {/foreach}

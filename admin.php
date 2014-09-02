@@ -12,6 +12,7 @@ if (isset($_POST['submit']))
     'autoplay' => isset($_POST['autoplay']),
     'stopautoplayontouch' => isset($_POST['stopautoplayontouch']),
     'loop' => isset($_POST['loop']),
+    'enable_caption' => isset($_POST['enable_caption']),
     );
   if (isset($_POST['allowfullscreen']))
     $conf['Fotorama']['allowfullscreen'] = $_POST['allowfullscreen'];

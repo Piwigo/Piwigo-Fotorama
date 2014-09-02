@@ -88,6 +88,12 @@
       <b>{'Enables loop'|@translate}</b>
     </label>
   </li>
+  <li>
+    <input type="checkbox" id="enable_caption" name="enable_caption"{if $Fotorama.enable_caption} checked="checked"{/if}>
+    <label for="enable_caption">
+      <b>{'Show caption with image title'|@translate}</b>
+    </label>
+  </li>
 </ul>
 </fieldset>
 

@@ -17,6 +17,7 @@ class Fotorama_maintain extends PluginMaintain
     'nav' => 'false',
     'fullscreen_nav' => 'false',
     'only_fullscreen' => false,
+    'enable_caption' => false,
   );
 
   function __construct($plugin_id)
