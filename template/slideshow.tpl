@@ -53,7 +53,7 @@ var image_h = {/literal}{$item_height}{literal}
                 jQuery('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
                 jQuery('#slideshow .showtitle').text(fotorama.activeFrame['title']);
                 jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/'+{/literal}{count($items)}{literal});
-                document.title = fotorama.activeFrame['title'] + ' | {/literal}{$GALLERY_TITLE}{literal}';
+                document.title = fotorama.activeFrame['title'] + ' | {/literal}{$GALLERY_TITLE|@escape:javascript}{literal}';
               }
             }
         )
@@ -82,7 +82,7 @@ var image_h = {/literal}{$item_height}{literal}
               jQuery('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
               jQuery('#slideshow .showtitle').text(fotorama.activeFrame['title']);
               jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/'+{/literal}{count($items)}{literal});
-              document.title = fotorama.activeFrame['title'] + ' | {/literal}{$GALLERY_TITLE}{literal}';
+              document.title = fotorama.activeFrame['title'] + ' | {/literal}{$GALLERY_TITLE|@escape:javascript}{literal}';
 
               fullscreen = false;
               {/literal}{/if}{literal}
