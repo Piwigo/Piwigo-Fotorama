@@ -31,6 +31,11 @@ function Fotorama_init()
 
   $conf['Fotorama'] = unserialize($conf['Fotorama']);
 
+  // Upgrade params from 2.7.j
+  if (!isset($conf['Fotorama']['thumbheight'])) {
+	$conf['Fotorama']['thumbheight'] = 64;
+  }
+
   add_event_handler('loc_end_picture', 'Fotorama_end_picture');
   add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');
 }
@@ -86,7 +91,9 @@ function Fotorama_end_picture()
       {
         $row['derivative_big'] = $row['src_image'];
       }
-      $row['derivative_thumb'] = DerivativeImage::get_one(IMG_SQUARE, $row['src_image']);
+//      $row['derivative_thumb'] = DerivativeImage::get_one(IMG_SQUARE, $row['src_image']);
+      $thumb_params = ImageStdParams::get_custom($conf['Fotorama']['thumbheight'], $conf['Fotorama']['thumbheight'], 1, $conf['Fotorama']['thumbheight'], $conf['Fotorama']['thumbheight']);
+      $row['derivative_thumb'] = new DerivativeImage($thumb_params, $row['src_image']);;
       if ($row['derivative_thumb'] == null)
       {
         $row['derivative_thumb'] = $row['src_image'];

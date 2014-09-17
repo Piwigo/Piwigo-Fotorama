@@ -12,5 +12,6 @@ $lang['Enables loop'] = 'Показывать в цикле';
 $lang['Fullscreen navigation style'] = 'Стиль навигации в полноэкранном режиме';
 $lang['Only fullscreen mode'] = 'Только полноэкранный режим';
 $lang['Show caption with image title'] = 'Показывать заголовок с названием изображения';
+$lang['Tumbnail height (when present)'] = 'Высота миниатюр (когда присутствуют)';
 
 ?>

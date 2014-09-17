@@ -45,13 +45,13 @@
     </select>
   </li>
   <li>
-    <label for="nav">
-      <b>{'Navigation style'|@translate}</b> 
+    <label for="fullscreen_nav">
+      <b>{'Fullscreen navigation style'|@translate}</b> 
     </label>
-    <select class="categoryDropDown" id="nav" name="nav">
-      <option value="false"{if $Fotorama.nav == 'false'} selected{/if}>{'false'|@translate}</option>
-      <option value="dots"{if $Fotorama.nav == 'dots'} selected{/if}>{'dots'|@translate}</option>
-      <option value="thumbs"{if $Fotorama.nav == 'thumbs'} selected{/if}>{'thumbs'|@translate}</option>
+    <select class="categoryDropDown" id="fullscreen_nav" name="fullscreen_nav">
+      <option value="false"{if $Fotorama.fullscreen_nav == 'false'} selected{/if}>{'false'|@translate}</option>
+      <option value="dots"{if $Fotorama.fullscreen_nav == 'dots'} selected{/if}>{'dots'|@translate}</option>
+      <option value="thumbs"{if $Fotorama.fullscreen_nav == 'thumbs'} selected{/if}>{'thumbs'|@translate}</option>
     </select>
   </li>
   <li>
@@ -63,6 +63,12 @@
       <option value="dots"{if $Fotorama.fullscreen_nav == 'dots'} selected{/if}>{'dots'|@translate}</option>
       <option value="thumbs"{if $Fotorama.fullscreen_nav == 'thumbs'} selected{/if}>{'thumbs'|@translate}</option>
     </select>
+  </li>
+  <li>
+    <label for="thumbheight">
+      <b>{'Tumbnail height (when present)'|@translate}</b> 
+    </label>
+    <input type="number" size="2" maxlength="3" name="thumbheight" value="{$Fotorama.thumbheight}" min="5" max="300" style="width: 50px;">&nbsp;px
   </li>
   <li>
     <input type="checkbox" id="shadows" name="shadows"{if $Fotorama.shadows} checked="checked"{/if}>
