@@ -32,8 +32,8 @@ var image_h = {/literal}{$item_height}{literal}
         data-loop="{if $Fotorama['loop']}true{else}false{/if}" data-captions="false">
       {foreach from=$items item=thumbnail}
         <a href="{$thumbnail['derivative']->get_url()}"
-          data-full="{$thumbnail['derivative_big']->get_url()}" data-url="{$thumbnail['url']}" data-caption="{$thumbnail['TITLE']}">
-          {if $Fotorama['nav'] == 'thumbs' || $Fotorama['fullscreen_nav'] == 'thumbs'}<img src="{$thumbnail['derivative_thumb']->get_url()}">{/if}
+          data-full="{$thumbnail['derivative_big']->get_url()}" data-url="{$thumbnail['url']}" data-caption="{$thumbnail['TITLE']}"
+          {if $Fotorama['nav'] == 'thumbs' || $Fotorama['fullscreen_nav'] == 'thumbs'}data-thumb="{$thumbnail['derivative_thumb']->get_url()}"{/if}>
         </a>
       {/foreach}
       </div>
