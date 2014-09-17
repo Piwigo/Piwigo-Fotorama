@@ -46,7 +46,7 @@
   </li>
   <li>
     <label for="nav">
-      <b>{'Fullscreen navigation style'|@translate}</b> 
+      <b>{'Navigation style'|@translate}</b> 
     </label>
     <select class="categoryDropDown" id="nav" name="nav">
       <option value="false"{if $Fotorama.nav == 'false'} selected{/if}>{'false'|@translate}</option>
