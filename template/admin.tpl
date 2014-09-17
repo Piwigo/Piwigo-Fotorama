@@ -45,13 +45,13 @@
     </select>
   </li>
   <li>
-    <label for="fullscreen_nav">
+    <label for="nav">
       <b>{'Fullscreen navigation style'|@translate}</b> 
     </label>
-    <select class="categoryDropDown" id="fullscreen_nav" name="fullscreen_nav">
-      <option value="false"{if $Fotorama.fullscreen_nav == 'false'} selected{/if}>{'false'|@translate}</option>
-      <option value="dots"{if $Fotorama.fullscreen_nav == 'dots'} selected{/if}>{'dots'|@translate}</option>
-      <option value="thumbs"{if $Fotorama.fullscreen_nav == 'thumbs'} selected{/if}>{'thumbs'|@translate}</option>
+    <select class="categoryDropDown" id="nav" name="nav">
+      <option value="false"{if $Fotorama.nav == 'false'} selected{/if}>{'false'|@translate}</option>
+      <option value="dots"{if $Fotorama.nav == 'dots'} selected{/if}>{'dots'|@translate}</option>
+      <option value="thumbs"{if $Fotorama.nav == 'thumbs'} selected{/if}>{'thumbs'|@translate}</option>
     </select>
   </li>
   <li>
