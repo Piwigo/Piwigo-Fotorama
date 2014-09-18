@@ -100,6 +100,18 @@
       <b>{'Show caption with image title'|@translate}</b>
     </label>
   </li>
+  <li>
+    <input type="checkbox" id="replace_picture" name="replace_picture"{if $Fotorama.replace_picture} checked="checked"{/if}>
+    <label for="replace_picture">
+      <b>{'Replace picture page'|@translate}</b>
+    </label>
+  </li>
+  <li>
+    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="replace_picture_only_users" name="replace_picture_only_users"{if $Fotorama.replace_picture_only_users} checked="checked"{/if}>
+    <label for="replace_picture_only_users">
+      <b>{'except an administrator'|@translate}</b>
+    </label>
+  </li>
 </ul>
 </fieldset>
 

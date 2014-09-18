@@ -35,6 +35,11 @@ function Fotorama_init()
   if (!isset($conf['Fotorama']['thumbheight'])) {
 	$conf['Fotorama']['thumbheight'] = 64;
   }
+  // Upgrade params from 2.7.l
+  if (!isset($conf['Fotorama']['replace_picture'])) {
+	$conf['Fotorama']['replace_picture'] = false;
+	$conf['Fotorama']['replace_picture_only_users'] = false;
+  }
 
   add_event_handler('loc_end_picture', 'Fotorama_end_picture');
   add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');
@@ -43,6 +48,30 @@ function Fotorama_init()
 function Fotorama_end_picture()
 {
   global $template, $conf, $user, $page;
+  
+  if ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()))
+  {
+    $page['slideshow'] = true;
+
+    $url_up = duplicate_index_url(
+      array(
+        'start' =>
+          floor($page['current_rank'] / $page['nb_image_page'])
+          * $page['nb_image_page']
+        ),
+      array(
+        'start',
+        )
+      );
+    //slideshow end
+    $template->assign(
+      array(
+        'U_SLIDESHOW_STOP' => $url_up,
+        )
+      );
+
+    $template->assign('replace_picture', true);
+  }
 
   if ($page['slideshow'] and $conf['light_slideshow'])
   {
@@ -132,6 +161,11 @@ function Fotorama_end_picture()
 function Fotorama_end_page_header()
 {
   global $template, $conf, $page;
+
+  if ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()))
+  {
+    $page['slideshow'] = true;
+  }
 
   if (isset($page['slideshow']) and $page['slideshow'] and $conf['light_slideshow'])
   {

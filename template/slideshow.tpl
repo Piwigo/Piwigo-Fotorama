@@ -49,8 +49,13 @@ var image_h = {/literal}{$item_height}{literal}
         .on('fotorama:showend ',
             function (e, fotorama, extra) {
               if (!fullscreen) {
+                {/literal}{if isset($replace_picture)}{literal}
+                history.replaceState(null, null, fotorama.activeFrame['url']);
+                {/literal}{else}{literal}
                 history.replaceState(null, null, fotorama.activeFrame['url']+'&slideshow=');
                 jQuery('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
+                {/literal}{/if}{literal}
+
                 jQuery('#slideshow .showtitle').text(fotorama.activeFrame['caption']);
                 jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/'+{/literal}{count($items)}{literal});
                 document.title = fotorama.activeFrame['caption'] + ' | {/literal}{$GALLERY_TITLE|@escape:javascript}{literal}';
@@ -84,8 +89,13 @@ var image_h = {/literal}{$item_height}{literal}
                 {/literal}{/if}{literal}
               });
 
+              {/literal}{if isset($replace_picture)}{literal}
+              history.replaceState(null, null, fotorama.activeFrame['url']);
+              {/literal}{else}{literal}
               history.replaceState(null, null, fotorama.activeFrame['url']+'&slideshow=');
               jQuery('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
+              {/literal}{/if}{literal}
+
               jQuery('#slideshow .showtitle').text(fotorama.activeFrame['caption']);
               jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/'+{/literal}{count($items)}{literal});
               document.title = fotorama.activeFrame['caption'] + ' | {/literal}{$GALLERY_TITLE|@escape:javascript}{literal}';

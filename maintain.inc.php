@@ -19,6 +19,8 @@ class Fotorama_maintain extends PluginMaintain
     'only_fullscreen' => false,
     'enable_caption' => false,
     'thumbheight' => 64,
+    'replace_picture' => false,
+    'replace_picture_only_users' => false,
   );
 
   function __construct($plugin_id)
