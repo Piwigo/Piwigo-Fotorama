@@ -45,6 +45,12 @@
     </select>
   </li>
   <li>
+    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="clicktransition_crossfade" name="clicktransition_crossfade"{if $Fotorama.clicktransition_crossfade} checked="checked"{/if}>
+    <label for="clicktransition_crossfade">
+      <b>{'Use crossfade transition on click'|translate}</b>
+    </label>
+  </li>
+  <li>
     <label for="nav">
       <b>{'Navigation style'|translate}</b> 
     </label>
@@ -144,6 +150,22 @@
     else {
       jQuery('#nav').prop('disabled', false);
     }
+
+    if (jQuery('#transition').val() == "slide") {
+      jQuery('#clicktransition_crossfade').prop('disabled', false);
+    }
+    else {
+      jQuery('#clicktransition_crossfade').prop('disabled', true);
+      jQuery('#clicktransition_crossfade').removeAttr('checked');
+    }
+
+    if(jQuery('#replace_picture').is(":checked")) {
+      jQuery('#replace_picture_only_users').prop('disabled', false);
+    }
+    else {
+      jQuery('#replace_picture_only_users').prop('disabled', true);
+      jQuery('#replace_picture_only_users').removeAttr('checked');
+    }
   }
   jQuery().ready(function() {
     update_Fotorama_state();
@@ -152,6 +174,12 @@
     update_Fotorama_state();
   });
   jQuery('#only_fullscreen').change(function() {
+    update_Fotorama_state();
+  });
+  jQuery('#transition').change(function() {
+    update_Fotorama_state();
+  });
+  jQuery('#replace_picture').change(function() {
     update_Fotorama_state();
   });
   

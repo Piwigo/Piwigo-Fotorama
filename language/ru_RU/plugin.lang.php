@@ -15,5 +15,6 @@ $lang['Show caption with image title'] = 'Показывать заголово�
 $lang['Tumbnail height (when present)'] = 'Высота миниатюр (когда присутствуют)';
 $lang['Replace picture page'] = 'Заменить страницы с фотографиями';
 $lang['except an administrator'] = 'кроме администратора';
+$lang['Use crossfade transition on click'] = 'Использовать стиль перехода crossfade при щелчке';
 
 ?>

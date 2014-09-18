@@ -39,6 +39,7 @@ function Fotorama_init()
   if (!isset($conf['Fotorama']['replace_picture'])) {
 	$conf['Fotorama']['replace_picture'] = false;
 	$conf['Fotorama']['replace_picture_only_users'] = false;
+	$conf['Fotorama']['clicktransition_crossfade'] = false;
   }
 
   add_event_handler('loc_end_picture', 'Fotorama_end_picture');

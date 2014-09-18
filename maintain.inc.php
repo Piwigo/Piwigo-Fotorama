@@ -21,6 +21,7 @@ class Fotorama_maintain extends PluginMaintain
     'thumbheight' => 64,
     'replace_picture' => false,
     'replace_picture_only_users' => false,
+    'clicktransition_crossfade' => true,
   );
 
   function __construct($plugin_id)
