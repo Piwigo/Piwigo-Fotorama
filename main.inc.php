@@ -105,6 +105,10 @@ function Fotorama_end_picture()
         break;
       $skip = $skip - 1;
     }
+    if ($conf['Fotorama']['only_fullscreen'])
+    {
+      $type = $big_type;
+    }
     
     $picture = array();
     while ($row = pwg_db_fetch_assoc($result))
