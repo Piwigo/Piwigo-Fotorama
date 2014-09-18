@@ -72,7 +72,7 @@
   </li>
   <li>
     <label for="thumbheight">
-      <b>{'Tumbnail height (when present)'|translate}</b> 
+      <b>{'Thumbnail height (when present)'|translate}</b> 
     </label>
     <input type="number" size="2" maxlength="3" name="thumbheight" value="{$Fotorama.thumbheight}" min="5" max="300" style="width: 50px;">&nbsp;px
   </li>

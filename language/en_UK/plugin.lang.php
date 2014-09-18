@@ -11,5 +11,10 @@ $lang['Stops slideshow at any user action with the fotorama'] = 'Stops slideshow
 $lang['Enables loop'] = 'Enables loop';
 $lang['Fullscreen navigation style'] = 'Fullscreen navigation style';
 $lang['Only fullscreen mode'] = 'Only fullscreen mode';
+$lang['Show caption with image title'] = 'Show caption with image title';
+$lang['Thumbnail height (when present)'] = 'Thumbnail height (when present)';
+$lang['Replace picture page'] = 'Replace picture page';
+$lang['except an administrator'] = 'except an administrator';
+$lang['Use crossfade transition on click'] = 'Use crossfade transition on click';
 
 ?>
