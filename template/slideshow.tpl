@@ -1,18 +1,16 @@
 {combine_css path="plugins/Fotorama/fotorama/fotorama.css"}
 {combine_script id='fotorama' require='jquery' load='header' path='plugins/Fotorama/fotorama/fotorama.js'}
 
-{literal}
-<script type="text/javascript">
-var image_w = {/literal}{$item_height}{literal}
-var image_h = {/literal}{$item_height}{literal}
+<script>
+var image_w = {$item_height};
+var image_h = {$item_height};
 </script>
-{/literal}
 
 <div id="slideshow">
   <div id="imageHeaderBar">
 	<div class="browsePath">
 	  {if isset($U_SLIDESHOW_STOP) }
-		[ <a href="{$U_SLIDESHOW_STOP}">{'stop the slideshow'|@translate}</a> ]
+		[ <a href="{$U_SLIDESHOW_STOP}">{'stop the slideshow'|translate}</a> ]
 	  {/if}
 	  <h2 class="showtitle">{$current.TITLE}</h2>
 	</div>
@@ -26,14 +24,14 @@ var image_h = {/literal}{$item_height}{literal}
 	<div id="theImage">
       <div class="fotorama" data-startindex="{$current_rank}" data-ratio="16/9" data-auto="false"
         data-width="100%" data-maxheight="100%" data-minheight="200" data-height="{$item_height}"
-        data-shadows="{if $Fotorama['shadows']}true{else}false{/if}" data-nav="{$Fotorama['nav']}" data-fit="{$Fotorama['fit']}"
-        data-allowfullscreen="{$Fotorama['allowfullscreen']}" data-autoplay="{if $Fotorama['autoplay']}true{else}false{/if}"
-        data-transition="{$Fotorama['transition']}" data-stopautoplayontouch="{if $Fotorama['stopautoplayontouch']}true{else}false{/if}"
-        data-loop="{if $Fotorama['loop']}true{else}false{/if}" data-captions="false" data-thumbheight="{$Fotorama['thumbheight']}" data-thumbwidth="{$Fotorama['thumbheight']}">
+        data-shadows="{if $Fotorama.shadows}true{else}false{/if}" data-nav="{$Fotorama.nav}" data-fit="{$Fotorama.fit}"
+        data-allowfullscreen="{$Fotorama.allowfullscreen}" data-autoplay="{if $Fotorama.autoplay}true{else}false{/if}"
+        data-transition="{$Fotorama.transition}" data-stopautoplayontouch="{if $Fotorama.stopautoplayontouch}true{else}false{/if}"
+        data-loop="{if $Fotorama.loop}true{else}false{/if}" data-captions="false" data-thumbheight="{$Fotorama.thumbheight}" data-thumbwidth="{$Fotorama.thumbheight}">
       {foreach from=$items item=thumbnail}
-        <a href="{$thumbnail['derivative']->get_url()}"
-          data-full="{$thumbnail['derivative_big']->get_url()}" data-url="{$thumbnail['url']}" data-caption="{$thumbnail['TITLE']}"
-          {if $Fotorama['nav'] == 'thumbs' || $Fotorama['fullscreen_nav'] == 'thumbs'}data-thumb="{$thumbnail['derivative_thumb']->get_url()}"{/if}>
+        <a href="{$thumbnail.derivative->get_url()}"
+          data-full="{$thumbnail.derivative_big->get_url()}" data-url="{$thumbnail.url}" data-caption="{$thumbnail.TITLE}"
+          {if $Fotorama.nav == 'thumbs' || $Fotorama.fullscreen_nav == 'thumbs'}data-thumb="{$thumbnail.derivative_thumb->get_url()}"{/if}>
         </a>
       {/foreach}
       </div>
@@ -41,7 +39,7 @@ var image_h = {/literal}{$item_height}{literal}
   </div>
 </div>
 
-{footer_script require='jquery'}{literal}
+{footer_script require='jquery'}
   var fullscreen = false;
   jQuery().ready(function() {
     jQuery('.fotorama')
@@ -49,26 +47,26 @@ var image_h = {/literal}{$item_height}{literal}
         .on('fotorama:showend ',
             function (e, fotorama, extra) {
               if (!fullscreen) {
-                {/literal}{if isset($replace_picture)}{literal}
+                {if isset($replace_picture)}
                 history.replaceState(null, null, fotorama.activeFrame['url']);
-                {/literal}{else}{literal}
+                {else}
                 history.replaceState(null, null, fotorama.activeFrame['url']+'&slideshow=');
                 jQuery('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
-                {/literal}{/if}{literal}
+                {/if}
 
                 jQuery('#slideshow .showtitle').text(fotorama.activeFrame['caption']);
-                jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/'+{/literal}{count($items)}{literal});
-                document.title = fotorama.activeFrame['caption'] + ' | {/literal}{$GALLERY_TITLE|@escape:javascript}{literal}';
+                jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/{count($items)}');
+                document.title = fotorama.activeFrame['caption'] + ' | {$GALLERY_TITLE|escape:javascript}';
               }
             }
         )
         .on('fotorama:fullscreenenter',
             function (e, fotorama, extra) {
               fotorama.setOptions({
-                nav: "{/literal}{$Fotorama['fullscreen_nav']}{literal}",
-                {/literal}{if $Fotorama['enable_caption']}{literal}
+                nav: "{$Fotorama.fullscreen_nav}",
+                {if $Fotorama.enable_caption}
                 captions: "true",
-                {/literal}{/if}{literal}
+                {/if}
               });
               fotorama.startAutoplay();
 
@@ -78,37 +76,37 @@ var image_h = {/literal}{$item_height}{literal}
         )
         .on('fotorama:fullscreenexit',
             function (e, fotorama, extra) {
-              {/literal}{if $Fotorama['only_fullscreen']}{literal}
+              {if $Fotorama.only_fullscreen}
               window.location.replace(fotorama.activeFrame['url']);
-              {/literal}{else}{literal}
+              {else}
 
               fotorama.setOptions({
-                nav: "{/literal}{$Fotorama['nav']}{literal}",
-                {/literal}{if $Fotorama['enable_caption']}{literal}
+                nav: "{$Fotorama.nav}",
+                {if $Fotorama.enable_caption}
                 captions: "false",
-                {/literal}{/if}{literal}
+                {/if}
               });
 
-              {/literal}{if isset($replace_picture)}{literal}
+              {if isset($replace_picture)}
               history.replaceState(null, null, fotorama.activeFrame['url']);
-              {/literal}{else}{literal}
+              {else}
               history.replaceState(null, null, fotorama.activeFrame['url']+'&slideshow=');
               jQuery('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
-              {/literal}{/if}{literal}
+              {/if}
 
               jQuery('#slideshow .showtitle').text(fotorama.activeFrame['caption']);
-              jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/'+{/literal}{count($items)}{literal});
-              document.title = fotorama.activeFrame['caption'] + ' | {/literal}{$GALLERY_TITLE|@escape:javascript}{literal}';
+              jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/{count($items)}');
+              document.title = fotorama.activeFrame['caption'] + ' | {$GALLERY_TITLE|escape:javascript}';
 
               fullscreen = false;
-              {/literal}{/if}{literal}
+              {/if}
             }
         )
         // Initialize fotorama manually
         .fotorama();
       
-      {/literal}{if $Fotorama['only_fullscreen']}{literal}
+      {if $Fotorama.only_fullscreen}
       jQuery('.fotorama').data('fotorama').requestFullScreen();
-      {/literal}{/if}{literal}
+      {/if}
   });
-{/literal}{/footer_script}
+{/footer_script}
