@@ -154,8 +154,9 @@ function Fotorama_end_picture()
     }
     else
     {
-      $template->set_filenames( array('slideshow' => realpath(FOTORAMA_PATH.'template/slideshow.tpl')));
+      $template->set_filenames( array('slideshow' => realpath(FOTORAMA_PATH.'template/fotorama.tpl')));
     }
+    $template->assign('FOTORAMA_CONTENT_PATH', realpath(FOTORAMA_PATH.'template/fotorama-content.tpl'));
   }
 }
 
