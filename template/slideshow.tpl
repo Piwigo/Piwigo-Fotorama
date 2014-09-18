@@ -79,7 +79,11 @@ var image_h = {$item_height};
         .on('fotorama:fullscreenexit',
             function (e, fotorama, extra) {
               {if $Fotorama.only_fullscreen}
+              {if isset($replace_picture)}
+              window.location.replace('{$U_SLIDESHOW_STOP}');
+              {else}
               window.location.replace(fotorama.activeFrame['url']);
+              {/if}
               {else}
 
               fotorama.setOptions({
