@@ -95,16 +95,20 @@ function Fotorama_end_picture()
     
     $skip = -1;
     $big_type = $type;
+    $next_type = $type;
     foreach (ImageStdParams::get_defined_type_map() as $def_type => $params)
     {
       if ($def_type == $type)
         $skip = 2;
       if ($skip >= 0)
         $big_type = $def_type;
+      if ($skip >= 1)
+        $next_type = $def_type;
       if ($skip == 0)
         break;
       $skip = $skip - 1;
     }
+    $type = $next_type; // +1 size for inpage slideshow
     if ($conf['Fotorama']['only_fullscreen'])
     {
       $type = $big_type;
