@@ -86,9 +86,15 @@
         )
         // Initialize fotorama manually
         .fotorama();
-      
-      {if $Fotorama.only_fullscreen}
-      jQuery('.fotorama').data('fotorama').requestFullScreen();
-      {/if}
+
+    {if $Fotorama.only_fullscreen}
+    jQuery('.fotorama').data('fotorama').requestFullScreen();
+    {else}
+    jQuery('.fotorama').data('fotorama').resize({
+      height: jQuery(window).height()
+    });
+    {/if}
+  
+    $('html,body').animate({ scrollTop: jQuery('.fotorama').offset().top }, 'slow');
   });
 {/footer_script}
