@@ -31,4 +31,8 @@ $lang['How to fit an image'] = 'Wie soll das Bild angepasst werden';
 $lang['Navigation style'] = 'Navigationsoptik';
 $lang['Fullscreen navigation style'] = 'Vollbildnavigationsstil ';
 $lang['Only fullscreen mode'] = 'Nur Vollbild Modus';
-?>
+$lang['Replace picture page'] = 'Ersetze Bilderseite';
+$lang['Show caption with image title'] = 'Zeige Bildunterschrift mit dem Bildtitel';
+$lang['Thumbnail height (when present)'] = 'Vorschaubildhöhe (falls angezeigt)';
+$lang['Use crossfade transition on click'] = 'Benutze Überblendung bei Klick';
+$lang['except an administrator'] = 'Administratoren ausgenommen';
