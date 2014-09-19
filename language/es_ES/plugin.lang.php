@@ -31,4 +31,8 @@ $lang['Stops slideshow at any user action with the fotorama'] = 'Detiene la pres
 $lang['What transition to use'] = 'Qué transición utilizar';
 $lang['Fullscreen navigation style'] = 'Estilo de navegación a pantalla completa';
 $lang['Only fullscreen mode'] = 'Solo modo a pantalla completa';
-?>
+$lang['Replace picture page'] = 'Reemplace página de imágenes';
+$lang['Show caption with image title'] = 'Mostrar leyenda con el título de la imagen';
+$lang['Thumbnail height (when present)'] = 'Altura de la etiqueta (si esta presente)';
+$lang['Use crossfade transition on click'] = 'Utilice transición de fundido cruzado al hacer clic';
+$lang['except an administrator'] = 'excepto administrador';
