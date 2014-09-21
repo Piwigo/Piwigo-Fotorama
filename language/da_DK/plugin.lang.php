@@ -31,4 +31,8 @@ $lang['Enables autoplay'] = 'Aktiver autostart';
 $lang['Allows fullscreen'] = 'Tillad fuldskærm';
 $lang['Fullscreen navigation style'] = 'Navigeringsstil i fuldskærmstilstand';
 $lang['Only fullscreen mode'] = 'Kun fuldskærmstilstand';
-?>
+$lang['Use crossfade transition on click'] = 'Anvend crossfadetransition ved klik';
+$lang['Replace picture page'] = 'Erstat billedside';
+$lang['Show caption with image title'] = 'Vis undertekst med billedtitel';
+$lang['Thumbnail height (when present)'] = 'Højde på miniaturebillede (når til stede)';
+$lang['except an administrator'] = 'bortset fra en administrator';
