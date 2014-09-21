@@ -31,4 +31,8 @@ $lang['Navigation style'] = 'Navigaation tyyli';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Lopeta esitys mihin tahansa käyttäjän toimintoon fotorama-tilassa';
 $lang['What transition to use'] = 'Valitse siirtymä tyyppi';
 $lang['stop the slideshow'] = 'Pysäytä esitys';
-?>
+$lang['Use crossfade transition on click'] = 'Käytä ristiinhäivitys siirtymää klikatessa';
+$lang['Show caption with image title'] = 'Näytä kuvaus kuvan otsikon kanssa';
+$lang['Thumbnail height (when present)'] = 'Pikkukuvan korkeus (jos saatavilla)';
+$lang['except an administrator'] = 'paitsi hallinnollinen käyttäjä';
+$lang['Replace picture page'] = 'Korvaa kuva sivu';
