@@ -31,4 +31,8 @@ $lang['Allows fullscreen'] = 'Consenti a schermo intero';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Ferma slideshow con qualsiasi azione dell\'utente con fotorama';
 $lang['Only fullscreen mode'] = 'Solo modo schermo intero';
 $lang['Fullscreen navigation style'] = 'Stile di navigazione a schermo intero';
-?>
+$lang['except an administrator'] = 'ad eccezione dell\'amministratore';
+$lang['Use crossfade transition on click'] = 'Utilizza la transizione di dissolvenza incrociata su clicca';
+$lang['Thumbnail height (when present)'] = 'Altezza miniatura (quando presente)';
+$lang['Show caption with image title'] = 'Mostra la didascalia con il titolo dell\'immagine';
+$lang['Replace picture page'] = 'Sostituisci pagina foto';
