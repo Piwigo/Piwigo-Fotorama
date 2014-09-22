@@ -44,6 +44,7 @@ function Fotorama_init()
   // Upgrade params from 2.7.m
   if (!isset($conf['Fotorama']['close_button'])) {
 	$conf['Fotorama']['close_button'] = false;
+	$conf['Fotorama']['resize'] = false;
   }
 
   add_event_handler('loc_end_picture', 'Fotorama_end_picture');
@@ -106,7 +107,7 @@ function Fotorama_end_picture()
         $skip = 2;
       if ($skip >= 0)
         $big_type = $def_type;
-      if ($skip >= 1)
+      if ($skip >= 1 and $conf['Fotorama']['resize'])
         $next_type = $def_type;
       if ($skip == 0)
         break;

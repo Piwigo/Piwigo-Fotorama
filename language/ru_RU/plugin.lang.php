@@ -17,5 +17,6 @@ $lang['Replace picture page'] = 'Заменить страницы с фотог
 $lang['except an administrator'] = 'кроме администратора';
 $lang['Use crossfade transition on click'] = 'Использовать стиль перехода crossfade при щелчке';
 $lang['Add close button'] = 'Добавить кнопку закрытия';
+$lang['Resize to fit window'] = 'Изменить размер по размеру окна';
 
 ?>

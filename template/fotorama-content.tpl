@@ -98,12 +98,14 @@
     {if $Fotorama.only_fullscreen}
     jQuery('.fotorama').data('fotorama').requestFullScreen();
     {else}
-    jQuery('.fotorama').data('fotorama').resize({
-      height: jQuery(window).height()
-    });
+      {if $Fotorama.resize}
+      jQuery('.fotorama').data('fotorama').resize({
+        height: jQuery(window).height()
+      });
+      jQuery('html,body').animate({ scrollTop: jQuery('.fotorama').offset().top }, 'slow');
+      {/if}
     {/if}
   
-    $('html,body').animate({ scrollTop: jQuery('.fotorama').offset().top }, 'slow');
   });
 
   {if $Fotorama.close_button}

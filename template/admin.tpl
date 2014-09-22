@@ -24,6 +24,12 @@
     </label>
   </li>
   <li>
+    <input type="checkbox" id="resize" name="resize"{if $Fotorama.resize} checked="checked"{/if}>
+    <label for="resize">
+      <b>{'Resize to fit window'|translate}</b>
+    </label>
+  </li>
+  <li>
     <input type="checkbox" id="close_button" name="close_button"{if $Fotorama.close_button} checked="checked"{/if}>
     <label for="close_button">
       <b>{'Add close button'|translate}</b>
@@ -152,9 +158,11 @@
 
     if(jQuery('#only_fullscreen').is(":checked")) {
       jQuery('#nav').prop('disabled', true);
+      jQuery('#resize').prop('disabled', true);
     }
     else {
       jQuery('#nav').prop('disabled', false);
+      jQuery('#resize').prop('disabled', false);
     }
 
     if (jQuery('#transition').val() == "slide") {
