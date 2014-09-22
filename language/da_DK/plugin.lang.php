@@ -36,3 +36,5 @@ $lang['Replace picture page'] = 'Erstat billedside';
 $lang['Show caption with image title'] = 'Vis undertekst med billedtitel';
 $lang['Thumbnail height (when present)'] = 'Højde på miniaturebillede (når til stede)';
 $lang['except an administrator'] = 'bortset fra en administrator';
+$lang['Add close button'] = 'Tilføj lukknap';
+$lang['Resize to fit window'] = 'Tilpas størrelsen til vinduet';
