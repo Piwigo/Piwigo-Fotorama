@@ -41,6 +41,10 @@ function Fotorama_init()
 	$conf['Fotorama']['replace_picture_only_users'] = false;
 	$conf['Fotorama']['clicktransition_crossfade'] = false;
   }
+  // Upgrade params from 2.7.m
+  if (!isset($conf['Fotorama']['close_button'])) {
+	$conf['Fotorama']['close_button'] = false;
+  }
 
   add_event_handler('loc_end_picture', 'Fotorama_end_picture');
   add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');

@@ -1,0 +1,46 @@
+.fotorama__fullscreen-icon {
+  top: 36px;
+}
+.fotorama__close-icon {
+  width: 32px;
+  height: 32px;
+  top: 2px;
+  right: 2px;
+  z-index: 20;
+  background: url(../fotorama/fotorama.png) no-repeat scroll -64px 0;
+  position: absolute;
+  cursor: pointer;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 2dppx) {
+  .fotorama__close-icon {
+    background: url('plugins/Fotorama/fotorama/fotorama@2x.png') no-repeat scroll -64px 0;
+    background-size: 96px 160px;
+  }
+}
+.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__close-icon {
+  opacity: 0;
+}
+.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__close-icon:focus {
+  opacity: 1;
+}
+.fotorama__wrap--css2.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__close-icon {
+  display: none;
+}
+.fotorama__wrap--css2.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__close-icon:focus {
+  display: block;
+}
+.fotorama__wrap--css2.fotorama__wrap--video .fotorama__close-icon {
+  display: none !important;
+}
+.fotorama__wrap--css3.fotorama__wrap--no-controls.fotorama__wrap--slide.fotorama__wrap--toggle-arrows .fotorama__close-icon:not(:focus) {
+  -webkit-transform: translate3d(0,-32px,0);
+  transform: translate3d(0,-32px,0);
+}
+.fotorama__wrap--css3 .fotorama__close-icon {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+.fotorama__wrap--css3 .fotorama__close-icon:not(:focus) {
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
+}

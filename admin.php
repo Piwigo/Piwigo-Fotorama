@@ -16,6 +16,7 @@ if (isset($_POST['submit']))
     'replace_picture' => isset($_POST['replace_picture']),
     'replace_picture_only_users' => isset($_POST['replace_picture_only_users']),
     'clicktransition_crossfade' => isset($_POST['clicktransition_crossfade']),
+    'close_button' => isset($_POST['close_button']),
     );
   if (isset($_POST['allowfullscreen']))
     $conf['Fotorama']['allowfullscreen'] = $_POST['allowfullscreen'];

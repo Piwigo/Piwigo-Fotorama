@@ -1,6 +1,10 @@
 {combine_css path="plugins/Fotorama/fotorama/fotorama.css"}
 {combine_script id='fotorama' require='jquery' load='header' path='plugins/Fotorama/fotorama/fotorama.js'}
 
+{if $Fotorama.close_button}
+{combine_css path="plugins/Fotorama/template/close_button.css"}
+{/if}
+
 <div class="fotorama" data-startindex="{$current_rank}" data-ratio="16/9" data-auto="false"
   data-width="100%" data-maxheight="100%" data-minheight="200" data-height="{$item_height}"
   data-shadows="{if $Fotorama.shadows}true{else}false{/if}" data-nav="{$Fotorama.nav}" data-fit="{$Fotorama.fit}"
@@ -16,6 +20,10 @@
   </a>
 {/foreach}
 </div>
+
+{if isset($U_SLIDESHOW_STOP)}
+<a href="{$U_SLIDESHOW_STOP}" class="fotorama__close-icon"></a>
+{/if}
 
 {footer_script require='jquery'}
   var fullscreen = false;
@@ -97,4 +105,10 @@
   
     $('html,body').animate({ scrollTop: jQuery('.fotorama').offset().top }, 'slow');
   });
+
+  {if $Fotorama.close_button}
+  jQuery('.fotorama').on('fotorama:ready', function (e, fotorama) {
+    jQuery('.fotorama__close-icon').detach().insertAfter('.fotorama__fullscreen-icon');
+  });
+  {/if}
 {/footer_script}

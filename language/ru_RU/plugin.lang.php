@@ -16,5 +16,6 @@ $lang['Thumbnail height (when present)'] = 'Высота миниатюр (ко�
 $lang['Replace picture page'] = 'Заменить страницы с фотографиями';
 $lang['except an administrator'] = 'кроме администратора';
 $lang['Use crossfade transition on click'] = 'Использовать стиль перехода crossfade при щелчке';
+$lang['Add close button'] = 'Добавить кнопку закрытия';
 
 ?>

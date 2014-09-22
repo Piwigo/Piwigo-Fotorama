@@ -22,6 +22,7 @@ class Fotorama_maintain extends PluginMaintain
     'replace_picture' => false,
     'replace_picture_only_users' => false,
     'clicktransition_crossfade' => true,
+    'close_button' => false,
   );
 
   function __construct($plugin_id)

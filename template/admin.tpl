@@ -24,6 +24,12 @@
     </label>
   </li>
   <li>
+    <input type="checkbox" id="close_button" name="close_button"{if $Fotorama.close_button} checked="checked"{/if}>
+    <label for="close_button">
+      <b>{'Add close button'|translate}</b>
+    </label>
+  </li>
+  <li>
     <label for="fit">
       <b>{'How to fit an image'|translate}</b> 
     </label>
