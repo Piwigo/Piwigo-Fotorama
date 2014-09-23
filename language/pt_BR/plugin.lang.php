@@ -36,3 +36,5 @@ $lang['Show caption with image title'] = 'Apresentar legenda com título da imag
 $lang['Thumbnail height (when present)'] = 'Altura da miniatura (quando presente)';
 $lang['Use crossfade transition on click'] = 'Use transição de atenuação cruzada no clique';
 $lang['except an administrator'] = 'exceto um administrador';
+$lang['Add close button'] = 'Adicionar botão de fechar';
+$lang['Resize to fit window'] = 'Redimensionar para caber na janela';
