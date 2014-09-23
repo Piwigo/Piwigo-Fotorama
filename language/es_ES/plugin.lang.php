@@ -36,3 +36,5 @@ $lang['Show caption with image title'] = 'Mostrar leyenda con el título de la i
 $lang['Thumbnail height (when present)'] = 'Altura de la etiqueta (si esta presente)';
 $lang['Use crossfade transition on click'] = 'Utilice transición de fundido cruzado al hacer clic';
 $lang['except an administrator'] = 'excepto administrador';
+$lang['Add close button'] = 'Añadir botón de cerrar';
+$lang['Resize to fit window'] = 'Redimensionar para ajustar a la pantalla';
