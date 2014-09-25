@@ -31,4 +31,10 @@ $lang['Enables shadows'] = 'Ενεργοποιεί τις σκιές';
 $lang['Enables loop'] = 'Επιτρέπει loop';
 $lang['Enables autoplay'] = 'Επιτρέπει autoplay';
 $lang['Allows fullscreen'] = 'Επιτρέπει πλήρη οθόνη';
-?>
+$lang['except an administrator'] = 'εκτός από ένα διαχειριστή';
+$lang['Use crossfade transition on click'] = 'Χρησιμοποιήστε μετάβαση crossfade στο κλικ';
+$lang['Thumbnail height (when present)'] = 'Ύψος Μικρογραφίας (αν υπάρχει)';
+$lang['Show caption with image title'] = 'Εμφάνιση λεζάντα με τον τίτλο της εικόνας';
+$lang['Resize to fit window'] = 'Αλλαγή μεγέθους για να χωρέσει στο παράθυρο';
+$lang['Replace picture page'] = 'Αντικαταστήστε τη σελίδα της εικόνας';
+$lang['Add close button'] = 'Προσθέστε ένα κουμπί για κλείσιμο.';
