@@ -31,4 +31,10 @@ $lang['Enables shadows'] = 'Povoliť tieňovanie';
 $lang['Enables autoplay'] = 'Povoliť autoprehrávanie';
 $lang['Fullscreen navigation style'] = 'Navigačný štýl pre celú obrazovku';
 $lang['Only fullscreen mode'] = 'Len celoobrazovkový mód';
-?>
+$lang['except an administrator'] = 'okrem administrátora';
+$lang['Use crossfade transition on click'] = 'Použite crossfade prechod po kliknutí';
+$lang['Thumbnail height (when present)'] = 'Výška náhľadu (ak je prítomná)';
+$lang['Show caption with image title'] = 'Zobraziť titulok s názvom fotky';
+$lang['Resize to fit window'] = 'Zmeniť veľkosť na veľkosť okna';
+$lang['Replace picture page'] = 'Vymeňte stránku obrázka';
+$lang['Add close button'] = 'Pridať tlačidlo Zavrieť';
