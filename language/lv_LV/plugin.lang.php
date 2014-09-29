@@ -31,4 +31,10 @@ $lang['Enables autoplay'] = 'Iespējo auto atskaņošanu';
 $lang['Allows fullscreen'] = 'Atļauj pilnu ekrānu';
 $lang['Only fullscreen mode'] = 'Tikai pilnekrāna režīms';
 $lang['Fullscreen navigation style'] = 'Pilnekrāna navigācijas stils';
-?>
+$lang['Use crossfade transition on click'] = 'Klikšķinot, izmantot balinātas pārejas efektu ';
+$lang['except an administrator'] = 'Izņemot administratoru';
+$lang['Thumbnail height (when present)'] = 'Sīkbildes augstums (ja ir)';
+$lang['Show caption with image title'] = 'Rādīt selekciju ar attēla nosaukumu';
+$lang['Resize to fit window'] = 'Izmainīt, lai der logā';
+$lang['Replace picture page'] = 'Samainīt attēla lapu';
+$lang['Add close button'] = 'Pievienot aizvēršanas pogu';
