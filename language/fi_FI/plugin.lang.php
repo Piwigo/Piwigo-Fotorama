@@ -36,3 +36,5 @@ $lang['Show caption with image title'] = 'Näytä kuvaus kuvan otsikon kanssa';
 $lang['Thumbnail height (when present)'] = 'Pikkukuvan korkeus (jos saatavilla)';
 $lang['except an administrator'] = 'paitsi hallinnollinen käyttäjä';
 $lang['Replace picture page'] = 'Korvaa kuva sivu';
+$lang['Add close button'] = 'Lisää sulkemisnappi';
+$lang['Resize to fit window'] = 'Mukauta koko mahtumaan ikkunaan';
