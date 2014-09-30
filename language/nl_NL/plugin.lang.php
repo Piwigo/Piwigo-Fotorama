@@ -31,4 +31,10 @@ $lang['Navigation style'] = 'Navigatie-stijl';
 $lang['Allows fullscreen'] = 'Gebruik volledig scherm toelaten';
 $lang['Fullscreen navigation style'] = 'Volledig scherm navigatie-stijl';
 $lang['Only fullscreen mode'] = 'Alleen volledig scherm modus';
-?>
+$lang['except an administrator'] = 'behalve een beheerder';
+$lang['Use crossfade transition on click'] = 'Gebruik overlappende overgang bij klikken';
+$lang['Thumbnail height (when present)'] = 'Miniatuur hoogte (voor zover aanwezig)';
+$lang['Show caption with image title'] = 'Toon opschrift met de fototitel';
+$lang['Resize to fit window'] = 'Maak het venster passend';
+$lang['Replace picture page'] = 'Vervang een fotopagina';
+$lang['Add close button'] = 'Voeg een sluit-knop toe';
