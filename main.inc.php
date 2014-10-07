@@ -21,7 +21,12 @@ add_event_handler('init', 'Fotorama_init');
 if (defined('IN_ADMIN'))
 {
   add_event_handler('get_admin_plugin_menu_links', 'Fotorama_admin_menu');
-} 
+}
+else
+{
+  add_event_handler('loc_end_picture', 'Fotorama_end_picture');
+  add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');
+}
 
 function Fotorama_init()
 {
@@ -50,9 +55,6 @@ function Fotorama_init()
   if (!isset($conf['Fotorama']['period'])) {
 	$conf['Fotorama']['period'] = 4000;
   }
-
-  add_event_handler('loc_end_picture', 'Fotorama_end_picture');
-  add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');
 }
 
 function Fotorama_end_picture()
