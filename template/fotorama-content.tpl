@@ -54,7 +54,9 @@
                 captions: "true",
                 {/if}
               });
+              {if $Fotorama.autoplay or not $Fotorama.only_fullscreen}
               fotorama.startAutoplay();
+              {/if}
 
               if (jQuery('.fotorama').attr('data-allowfullscreen') == 'native')
                 fullscreen = true;
