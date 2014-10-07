@@ -8,7 +8,7 @@
 <div class="fotorama" data-startindex="{$current_rank}" data-ratio="16/9" data-auto="false"
   data-width="100%" data-maxheight="100%" data-minheight="200" data-height="{$item_height}"
   data-shadows="{if $Fotorama.shadows}true{else}false{/if}" data-nav="{$Fotorama.nav}" data-fit="{$Fotorama.fit}"
-  data-allowfullscreen="{$Fotorama.allowfullscreen}" data-autoplay="{if $Fotorama.autoplay}true{else}false{/if}"
+  data-allowfullscreen="{$Fotorama.allowfullscreen}" data-autoplay="{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}"
   data-transition="{$Fotorama.transition}" data-stopautoplayontouch="{if $Fotorama.stopautoplayontouch}true{else}false{/if}"
   data-loop="{if $Fotorama.loop}true{else}false{/if}" data-captions="false" data-thumbheight="{$Fotorama.thumbheight}"
   data-thumbwidth="{$Fotorama.thumbheight}"{if $Fotorama.clicktransition_crossfade} data-clicktransition="crossfade"{/if}
@@ -55,7 +55,7 @@
                 {/if}
               });
               {if $Fotorama.autoplay or not $Fotorama.only_fullscreen}
-              fotorama.startAutoplay();
+//              fotorama.startAutoplay();
               {/if}
 
               if (jQuery('.fotorama').attr('data-allowfullscreen') == 'native')
@@ -113,6 +113,21 @@
   {if $Fotorama.close_button}
   jQuery('.fotorama').on('fotorama:ready', function (e, fotorama) {
     jQuery('.fotorama__close-icon').detach().insertAfter('.fotorama__fullscreen-icon');
+  });
+  {/if}
+  
+  {if $Fotorama.autoplay}
+  $(document).keypress(function(e) {
+    if(e.which == 43) {
+      jQuery('.fotorama').data('fotorama').setOptions({
+        autoplay: jQuery('.fotorama').data('fotorama').options['autoplay'] * 1.4
+      });
+    }
+    if(e.which == 45) {
+      jQuery('.fotorama').data('fotorama').setOptions({
+        autoplay: jQuery('.fotorama').data('fotorama').options['autoplay'] / 1.4
+      });
+    }
   });
   {/if}
 {/footer_script}

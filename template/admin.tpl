@@ -86,7 +86,7 @@
     <label for="thumbheight">
       <b>{'Thumbnail height (when present)'|translate}</b> 
     </label>
-    <input type="number" size="2" maxlength="3" name="thumbheight" value="{$Fotorama.thumbheight}" min="5" max="300" style="width: 50px;">&nbsp;px
+    <input type="number" size="2" maxlength="3" name="thumbheight" id="thumbheight" value="{$Fotorama.thumbheight}" min="5" max="300" style="width: 50px;">&nbsp;px
   </li>
   <li>
     <input type="checkbox" id="shadows" name="shadows"{if $Fotorama.shadows} checked="checked"{/if}>
@@ -99,6 +99,12 @@
     <label for="autoplay">
       <b>{'Enables autoplay'|translate}</b>
     </label>
+  </li>
+  <li>
+    <label for="period">
+      <b>{'Waiting time before loading a new picture'|translate}</b> 
+    </label>
+    <input type="number" size="4" maxlength="5" name="period" id="period" value="{$Fotorama.period}" min="0" max="10000" style="width: 50px;">&nbsp;{'milliseconds'|translate}
   </li>
   <li>
     <input type="checkbox" id="stopautoplayontouch" name="stopautoplayontouch"{if $Fotorama.stopautoplayontouch} checked="checked"{/if}>
@@ -180,6 +186,13 @@
       jQuery('#replace_picture_only_users').prop('disabled', true);
       jQuery('#replace_picture_only_users').removeAttr('checked');
     }
+
+    if(jQuery('#autoplay').is(":checked")) {
+      jQuery('#period').prop('disabled', false);
+    }
+    else {
+      jQuery('#period').prop('disabled', true);
+    }
   }
   jQuery().ready(function() {
     update_Fotorama_state();
@@ -194,6 +207,9 @@
     update_Fotorama_state();
   });
   jQuery('#replace_picture').change(function() {
+    update_Fotorama_state();
+  });
+  jQuery('#autoplay').change(function() {
     update_Fotorama_state();
   });
   

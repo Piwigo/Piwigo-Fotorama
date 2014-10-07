@@ -24,6 +24,7 @@ class Fotorama_maintain extends PluginMaintain
     'clicktransition_crossfade' => true,
     'close_button' => false,
     'resize' => false,
+    'period' => 4000,
   );
 
   function __construct($plugin_id)

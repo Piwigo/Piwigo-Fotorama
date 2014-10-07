@@ -31,6 +31,8 @@ if (isset($_POST['submit']))
     $conf['Fotorama']['fullscreen_nav'] = $_POST['fullscreen_nav'];
   if (isset($_POST['thumbheight']))
     $conf['Fotorama']['thumbheight'] = $_POST['thumbheight'];
+  if (isset($_POST['period']))
+    $conf['Fotorama']['period'] = $_POST['period'];
 
   conf_update_param('Fotorama', serialize($conf['Fotorama']));
   $page['infos'][] = l10n('Information data registered in database');

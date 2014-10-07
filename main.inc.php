@@ -46,6 +46,10 @@ function Fotorama_init()
 	$conf['Fotorama']['close_button'] = false;
 	$conf['Fotorama']['resize'] = false;
   }
+  // Upgrade params from 2.7.n
+  if (!isset($conf['Fotorama']['period'])) {
+	$conf['Fotorama']['period'] = 4000;
+  }
 
   add_event_handler('loc_end_picture', 'Fotorama_end_picture');
   add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');
