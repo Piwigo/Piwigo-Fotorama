@@ -20,5 +20,6 @@ $lang['Add close button'] = 'Добавить кнопку закрытия';
 $lang['Resize to fit window'] = 'Изменить размер по размеру окна';
 $lang['Waiting time before loading a new image'] = 'Ждать перед сменой изображения';
 $lang['milliseconds'] = 'миллисекунд';
+$lang['Add image info button'] = 'Добавить кнопку информации об изображении';
 
 ?>

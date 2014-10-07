@@ -13,7 +13,7 @@
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 2dppx) {
   .fotorama__close-icon {
-    background: url('plugins/Fotorama/fotorama/fotorama@2x.png') no-repeat scroll -64px 0;
+    background: url('../fotorama/fotorama@2x.png') no-repeat scroll -64px 0;
     background-size: 96px 160px;
   }
 }

@@ -20,5 +20,6 @@ $lang['Add close button'] = 'Add close button';
 $lang['Resize to fit window'] = 'Resize to fit window';
 $lang['Waiting time before loading a new image'] = 'Waiting time before loading a new picture';
 $lang['milliseconds'] = 'milliseconds';
+$lang['Add image info button'] = 'Add image info button';
 
 ?>

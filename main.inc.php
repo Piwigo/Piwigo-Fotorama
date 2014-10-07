@@ -54,14 +54,15 @@ function Fotorama_init()
   // Upgrade params from 2.7.n
   if (!isset($conf['Fotorama']['period'])) {
 	$conf['Fotorama']['period'] = 4000;
+    $conf['Fotorama']['info_button'] = false;
   }
 }
 
 function Fotorama_end_picture()
 {
   global $template, $conf, $user, $page;
-  
-  if ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()))
+
+  if ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()) and (!isset($_GET['slidestop'])))
   {
     $page['slideshow'] = true;
 
@@ -84,7 +85,7 @@ function Fotorama_end_picture()
 
     $template->assign('replace_picture', true);
   }
-
+  
   if ($page['slideshow'] and $conf['light_slideshow'])
   {
     $query = '
@@ -183,7 +184,7 @@ function Fotorama_end_page_header()
 {
   global $template, $conf, $page;
 
-  if ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()))
+  if ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()) and (!isset($_GET['slidestop'])))
   {
     $page['slideshow'] = true;
   }

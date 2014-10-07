@@ -36,6 +36,12 @@
     </label>
   </li>
   <li>
+    <input type="checkbox" id="info_button" name="info_button"{if $Fotorama.info_button} checked="checked"{/if}>
+    <label for="info_button">
+      <b>{'Add image info button'|translate}</b>
+    </label>
+  </li>
+  <li>
     <label for="fit">
       <b>{'How to fit an image'|translate}</b> 
     </label>

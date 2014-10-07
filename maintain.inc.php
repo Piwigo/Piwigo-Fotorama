@@ -25,6 +25,7 @@ class Fotorama_maintain extends PluginMaintain
     'close_button' => false,
     'resize' => false,
     'period' => 4000,
+    'info_button' => false,
   );
 
   function __construct($plugin_id)
