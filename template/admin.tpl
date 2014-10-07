@@ -102,7 +102,7 @@
   </li>
   <li>
     <label for="period">
-      <b>{'Waiting time before loading a new picture'|translate}</b> 
+      <b>{'Waiting time before loading a new image'|translate}</b> 
     </label>
     <input type="number" size="4" maxlength="5" name="period" id="period" value="{$Fotorama.period}" min="0" max="10000" style="width: 50px;">&nbsp;{'milliseconds'|translate}
   </li>

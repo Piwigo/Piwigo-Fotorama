@@ -18,5 +18,7 @@ $lang['except an administrator'] = 'except an administrator';
 $lang['Use crossfade transition on click'] = 'Use crossfade transition on click';
 $lang['Add close button'] = 'Add close button';
 $lang['Resize to fit window'] = 'Resize to fit window';
+$lang['Waiting time before loading a new image'] = 'Waiting time before loading a new picture';
+$lang['milliseconds'] = 'milliseconds';
 
 ?>
