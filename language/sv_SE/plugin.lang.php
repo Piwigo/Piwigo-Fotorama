@@ -38,3 +38,6 @@ $lang['Show caption with image title'] = 'Visa bildtext med bildnamn';
 $lang['Thumbnail height (when present)'] = 'Höjd på miniatyr (när den visas)';
 $lang['Use crossfade transition on click'] = 'Tona över till nästa bild vid klick';
 $lang['except an administrator'] = 'förutom administratörer';
+$lang['Add image info button'] = 'Lägg till knapp för bildinfo';
+$lang['Waiting time before loading a new image'] = 'Väntetid för att ladda nästa bild';
+$lang['milliseconds'] = 'millisekunder';
