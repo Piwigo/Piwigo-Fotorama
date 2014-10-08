@@ -31,4 +31,13 @@ $lang['What transition to use'] = 'Hiệu ứng chuyển hình';
 $lang['stop the slideshow'] = 'dừng trình chiếu';
 $lang['Fullscreen navigation style'] = 'Kiểu thao tác toàn màn hình';
 $lang['Only fullscreen mode'] = 'Chỉ chế độ toàn màn hình';
-?>
+$lang['Add close button'] = 'Thêm nút đóng';
+$lang['Add image info button'] = 'Thêm nút thông tin ảnh';
+$lang['Replace picture page'] = 'Thay trang hình';
+$lang['Resize to fit window'] = 'Co giãn vừa với cửa sổ';
+$lang['Show caption with image title'] = 'Hiện tiêu đề bằng tiêu đề ảnh';
+$lang['Thumbnail height (when present)'] = 'Chiều cao ảnh đại diện (nếu có)';
+$lang['Use crossfade transition on click'] = 'Dùng hiệu ứng chuyển mờ khi nhấp chuột';
+$lang['Waiting time before loading a new image'] = 'Thời gian chờ trước khi tải một ảnh mới';
+$lang['except an administrator'] = 'ngoại trừ quản trị viên';
+$lang['milliseconds'] = 'mili giây';
