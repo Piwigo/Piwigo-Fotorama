@@ -38,3 +38,7 @@ $lang['Thumbnail height (when present)'] = 'Højde på miniaturebillede (når ti
 $lang['except an administrator'] = 'bortset fra en administrator';
 $lang['Add close button'] = 'Tilføj lukknap';
 $lang['Resize to fit window'] = 'Tilpas størrelsen til vinduet';
+$lang['Add image info button'] = 'Tilføj billedinfoknap';
+$lang['Thumbnail is a square (when present)'] = 'Miniaturebillede er kvadratisk (når til stede)';
+$lang['Waiting time before loading a new image'] = 'Ventetid før indlæsning af et nyt billede';
+$lang['milliseconds'] = 'millisekunder';
