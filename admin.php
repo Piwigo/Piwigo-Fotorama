@@ -19,6 +19,7 @@ if (isset($_POST['submit']))
     'close_button' => isset($_POST['close_button']),
     'resize' => isset($_POST['resize']),
     'info_button' => isset($_POST['info_button']),
+    'square_thumb' => isset($_POST['square_thumb']),
     );
   if (isset($_POST['allowfullscreen']))
     $conf['Fotorama']['allowfullscreen'] = $_POST['allowfullscreen'];

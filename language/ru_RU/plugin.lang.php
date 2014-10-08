@@ -21,5 +21,6 @@ $lang['Resize to fit window'] = 'Изменить размер по размер
 $lang['Waiting time before loading a new image'] = 'Ждать перед сменой изображения';
 $lang['milliseconds'] = 'миллисекунд';
 $lang['Add image info button'] = 'Добавить кнопку информации об изображении';
+$lang['Thumbnail is a square (when present)'] = 'Квадратные миниатюры (когда присутствуют)';
 
 ?>

@@ -95,6 +95,12 @@
     <input type="number" size="2" maxlength="3" name="thumbheight" id="thumbheight" value="{$Fotorama.thumbheight}" min="5" max="300" style="width: 50px;">&nbsp;px
   </li>
   <li>
+    <input type="checkbox" id="square_thumb" name="square_thumb"{if $Fotorama.square_thumb} checked="checked"{/if}>
+    <label for="square_thumb">
+      <b>{'Thumbnail is a square (when present)'|translate}</b>
+    </label>
+  </li>
+  <li>
     <input type="checkbox" id="shadows" name="shadows"{if $Fotorama.shadows} checked="checked"{/if}>
     <label for="shadows">
       <b>{'Enables shadows'|translate}</b>
