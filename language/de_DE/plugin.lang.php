@@ -38,3 +38,7 @@ $lang['Use crossfade transition on click'] = 'Benutze Überblendung bei Klick';
 $lang['except an administrator'] = 'Administratoren ausgenommen';
 $lang['Add close button'] = 'Button zum Schließen hinzufügen';
 $lang['Resize to fit window'] = 'Fenstergrößenanpassung';
+$lang['Add image info button'] = 'Bild-Info-Button hinzufügen';
+$lang['Thumbnail is a square (when present)'] = 'Thumbnail (wenn vorhanden) soll Quadrat sein';
+$lang['Waiting time before loading a new image'] = 'Wartezeit vor dem Laden eines neuen Bildes';
+$lang['milliseconds'] = 'Millisekunden';
