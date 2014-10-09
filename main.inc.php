@@ -24,8 +24,11 @@ if (defined('IN_ADMIN'))
 }
 else
 {
-  add_event_handler('loc_end_picture', 'Fotorama_end_picture');
-  add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');
+  if ($conf['light_slideshow'])
+  {
+    add_event_handler('loc_end_picture', 'Fotorama_end_picture');
+    add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');
+  }
 }
 
 function Fotorama_init()
@@ -87,7 +90,7 @@ function Fotorama_end_picture()
     $template->assign('replace_picture', true);
   }
   
-  if ($page['slideshow'] and $conf['light_slideshow'])
+  if ($page['slideshow'])
   {
     $query = '
     SELECT *
@@ -99,6 +102,7 @@ function Fotorama_end_picture()
     $result = pwg_query($query);
 
     $current = $template->get_template_vars('current');
+    print_r($current);
     $type = $current['selected_derivative']->get_type();
     $defined = ImageStdParams::get_defined_type_map();
     if (!isset($defined[$type]))
@@ -197,7 +201,7 @@ function Fotorama_end_page_header()
     $page['slideshow'] = true;
   }
 
-  if (isset($page['slideshow']) and $page['slideshow'] and $conf['light_slideshow'])
+  if (isset($page['slideshow']) and $page['slideshow'])
   {
     $template->clear_assign('page_refresh');
     $template->clear_assign('first');
