@@ -32,10 +32,17 @@ else
   }
 }
 
-function Fotorama_init()
+function Fotorama_is_replace_picture()
 {
   global $conf;
-  
+
+  return ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()) and (!isset($_GET['slidestop'])));
+}
+
+function Fotorama_init()
+{
+  global $conf, $user;
+
   load_language('plugin.lang', FOTORAMA_PATH);
 
   $conf['Fotorama'] = unserialize($conf['Fotorama']);
@@ -61,13 +68,11 @@ function Fotorama_init()
     $conf['Fotorama']['info_button'] = false;
     $conf['Fotorama']['square_thumb'] = true;
   }
-}
 
-function Fotorama_is_replace_picture()
-{
-  global $conf;
-
-  return ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()) and (!isset($_GET['slidestop'])));
+  if ($user['theme'] == 'modus' and Fotorama_is_replace_picture())
+  {
+    remove_event_handler('loc_begin_picture', 'modus_loc_begin_picture');
+  }
 }
 
 function Fotorama_element_content()
