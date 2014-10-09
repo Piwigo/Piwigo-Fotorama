@@ -26,6 +26,7 @@ else
 {
   if ($conf['light_slideshow'])
   {
+    add_event_handler('render_element_content', 'Fotorama_element_content');
     add_event_handler('loc_end_picture', 'Fotorama_end_picture');
     add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');
   }
@@ -62,14 +63,29 @@ function Fotorama_init()
   }
 }
 
+function Fotorama_is_replace_picture()
+{
+  global $conf;
+
+  return ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()) and (!isset($_GET['slidestop'])));
+}
+
+function Fotorama_element_content()
+{
+  global $page;
+
+  if (Fotorama_is_replace_picture())
+  {
+    $page['slideshow'] = true;
+  }
+}
+
 function Fotorama_end_picture()
 {
   global $template, $conf, $user, $page;
 
-  if ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()) and (!isset($_GET['slidestop'])))
+  if (Fotorama_is_replace_picture())
   {
-    $page['slideshow'] = true;
-
     $url_up = duplicate_index_url(
       array(
         'start' =>
@@ -193,12 +209,7 @@ function Fotorama_end_picture()
 
 function Fotorama_end_page_header()
 {
-  global $template, $conf, $page;
-
-  if ($conf['Fotorama']['replace_picture'] and (!$conf['Fotorama']['replace_picture_only_users'] or !is_admin()) and (!isset($_GET['slidestop'])))
-  {
-    $page['slideshow'] = true;
-  }
+  global $template, $page;
 
   if (isset($page['slideshow']) and $page['slideshow'])
   {
