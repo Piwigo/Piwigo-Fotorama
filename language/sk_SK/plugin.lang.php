@@ -38,3 +38,7 @@ $lang['Show caption with image title'] = 'Zobraziť titulok s názvom fotky';
 $lang['Resize to fit window'] = 'Zmeniť veľkosť na veľkosť okna';
 $lang['Replace picture page'] = 'Vymeňte stránku obrázka';
 $lang['Add close button'] = 'Pridať tlačidlo Zavrieť';
+$lang['Thumbnail is a square (when present)'] = 'Náhľad je štvorec (ak je prítomný)';
+$lang['Waiting time before loading a new image'] = 'Potrebný čas pred nahratím novej fotky';
+$lang['milliseconds'] = 'milisekúnd';
+$lang['Add image info button'] = 'Pridať tlačidlo informácií o fotke';
