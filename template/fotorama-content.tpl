@@ -32,6 +32,8 @@
 <a class="fotorama__info-icon"></a>
 
 {footer_script require='jquery'}
+  window.blockFotoramaData = true;
+
   var fullscreen = false;
   jQuery().ready(function() {
     jQuery('.fotorama')
