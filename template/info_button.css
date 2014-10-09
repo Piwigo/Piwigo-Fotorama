@@ -10,8 +10,8 @@
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 2dppx) {
   .fotorama__info-icon {
-    background: url('../template/info_button@2x.png') no-repeat scroll -64px 0;
-    background-size: 96px 160px;
+    background: url('../template/info_button@2x.png') no-repeat scroll;
+    background-size: 32px 32px;
   }
 }
 .fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__info-icon {
