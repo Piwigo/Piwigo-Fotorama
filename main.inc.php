@@ -102,7 +102,6 @@ function Fotorama_end_picture()
     $result = pwg_query($query);
 
     $current = $template->get_template_vars('current');
-    print_r($current);
     $type = $current['selected_derivative']->get_type();
     $defined = ImageStdParams::get_defined_type_map();
     if (!isset($defined[$type]))
