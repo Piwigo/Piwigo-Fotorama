@@ -22,7 +22,7 @@
 // +-----------------------------------------------------------------------+
 $lang['stop the slideshow'] = 'Arrêter le diaporama';
 $lang['Enables shadows'] = 'Affichage d\'une ombre';
-$lang['How to fit an image'] = 'Adaptation le l\'image';
+$lang['How to fit an image'] = 'Adaptation de l\'image';
 $lang['Navigation style'] = 'Style de la navigation';
 $lang['Allows fullscreen'] = 'Autoriser l\'affichage plein écran';
 $lang['Enables autoplay'] = 'Démarrage automatique de la lecture';
@@ -31,4 +31,14 @@ $lang['Stops slideshow at any user action with the fotorama'] = 'Arrêter le dia
 $lang['What transition to use'] = 'Transition à utiliser';
 $lang['Fullscreen navigation style'] = 'Style de la navigation plein écran';
 $lang['Only fullscreen mode'] = 'Mode plein écran seulement';
-?>
+$lang['milliseconds'] = 'milisecondes';
+$lang['Add close button'] = 'Ajouter un bouter "fermer"';
+$lang['Add image info button'] = 'Ajouter un bouton "Information sur l\'image"';
+$lang['Replace picture page'] = 'Remplacer la page de l\'image';
+$lang['Resize to fit window'] = 'Redimensionner pour remplir la fenêtre';
+$lang['Show caption with image title'] = 'Montrer une légende avec le nom de l\'image';
+$lang['Thumbnail height (when present)'] = 'Hauteur de la miniature (quand affichée)';
+$lang['Thumbnail is a square (when present)'] = 'Miniature carrée (quand affichée)';
+$lang['Use crossfade transition on click'] = 'Utiliser la transition "crossfade" pour les clics de souris';
+$lang['Waiting time before loading a new image'] = 'Temps d\'attente avant de charger une nouvelle image';
+$lang['except an administrator'] = 'Sauf pour les administrateurs';
