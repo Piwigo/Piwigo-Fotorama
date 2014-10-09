@@ -38,3 +38,7 @@ $lang['Use crossfade transition on click'] = 'Utilice transición de fundido cru
 $lang['except an administrator'] = 'excepto administrador';
 $lang['Add close button'] = 'Añadir botón de cerrar';
 $lang['Resize to fit window'] = 'Redimensionar para ajustar a la pantalla';
+$lang['Add image info button'] = 'Añadir imagen botón de información';
+$lang['Thumbnail is a square (when present)'] = 'Miniatura es un cuadrado (cuando está presente)';
+$lang['Waiting time before loading a new image'] = 'Tiempo de espera antes de cargar una nueva imagen';
+$lang['milliseconds'] = 'milisegundos';
