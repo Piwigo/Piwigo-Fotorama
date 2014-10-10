@@ -150,6 +150,8 @@ function Fotorama_end_picture()
     {
       $type = $big_type;
     }
+    $type_params = ImageStdParams::get_by_type($type);
+    $big_type_params = ImageStdParams::get_by_type($big_type);
 
     if ($conf['Fotorama']['nav'] == 'thumbs' or $conf['Fotorama']['fullscreen_nav'] == 'thumbs')
     {
@@ -176,12 +178,12 @@ function Fotorama_end_picture()
     while ($row = pwg_db_fetch_assoc($result))
     {
       $row['src_image'] = new SrcImage($row);
-      $row['derivative'] = DerivativeImage::get_one($type, $row['src_image']);
+      $row['derivative'] = new DerivativeImage($type_params, $row['src_image']);
       if ($row['derivative'] == null)
       {
         $row['derivative'] = $row['src_image'];
       }
-      $row['derivative_big'] = DerivativeImage::get_one($big_type, $row['src_image']);
+      $row['derivative_big'] = new DerivativeImage($big_type_params, $row['src_image']);
       if ($row['derivative_big'] == null)
       {
         $row['derivative_big'] = $row['src_image'];
@@ -189,7 +191,7 @@ function Fotorama_end_picture()
 
       if ($has_thumbs)
       {
-        $row['derivative_thumb'] = new DerivativeImage($thumb_params, $row['src_image']);;
+        $row['derivative_thumb'] = new DerivativeImage($thumb_params, $row['src_image']);
         if ($row['derivative_thumb'] == null)
         {
           $row['derivative_thumb'] = $row['src_image'];
