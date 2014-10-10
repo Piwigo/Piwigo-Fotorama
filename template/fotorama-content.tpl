@@ -16,16 +16,6 @@
   data-loop="{if $Fotorama.loop}true{else}false{/if}" data-captions="false" data-thumbheight="{$Fotorama.thumbheight}"
   data-thumbwidth="{$Fotorama.thumbheight}"{if $Fotorama.clicktransition_crossfade} data-clicktransition="crossfade"{/if}
   data-keyboard="true">
-{foreach from=$items item=thumbnail}
-  <a href="{$thumbnail.derivative->get_url()}"
-    data-full="{$thumbnail.derivative_big->get_url()}" data-url="{$thumbnail.url}" data-caption="{$thumbnail.TITLE|escape:html}"
-    {if $Fotorama_has_thumbs}data-thumb="{$thumbnail.derivative_thumb->get_url()}"{/if}>
-    {if $Fotorama_has_thumbs}
-      {assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
-      {if !$Fotorama.square_thumb}<img width="{$thumb_size[0]}" height="{$thumb_size[1]}">{/if}
-    {/if}
-  </a>
-{/foreach}
 </div>
 
 {if isset($U_SLIDESHOW_STOP)}
@@ -107,7 +97,22 @@
             }
         )
         // Initialize fotorama manually
-        .fotorama();
+        .fotorama({
+          data: [
+{foreach from=$items item=thumbnail}
+{
+caption: "{$thumbnail.TITLE|escape:javascript}",
+full: "{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}",
+img: "{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}",
+{if $Fotorama_has_thumbs}
+thumb: "{$thumbnail.derivative_thumb->get_url()}",
+{assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
+thumbratio: {$thumb_size[0]/$thumb_size[1]},
+{/if}
+url: "{$thumbnail.url}"
+},{/foreach}
+          ]
+        });
 
     {if $Fotorama.only_fullscreen}
     jQuery('.fotorama').data('fotorama').requestFullScreen();
