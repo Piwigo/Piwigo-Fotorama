@@ -36,11 +36,11 @@
                 {if isset($replace_picture)}
                 history.replaceState(null, null, fotorama.activeFrame['url']);
                 {else}
-                history.replaceState(null, null, fotorama.activeFrame['url']+'&slideshow=');
+                history.replaceState(null, null, fotorama.activeFrame['url']+(fotorama.activeFrame['url'].indexOf('?')==-1 ? '?' : '&')+'slideshow=');
                 jQuery('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
                 {/if}
 
-                jQuery('a.fotorama__info-icon').attr('href', fotorama.activeFrame['url']+'&slidestop=');
+                jQuery('a.fotorama__info-icon').attr('href', fotorama.activeFrame['url']+(fotorama.activeFrame['url'].indexOf('?')==-1 ? '?' : '&')+'slidestop=');
 
                 jQuery('#slideshow .showtitle').text(fotorama.activeFrame['caption']);
                 jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/{count($items)}');
@@ -84,7 +84,7 @@
               {if isset($replace_picture)}
               history.replaceState(null, null, fotorama.activeFrame['url']);
               {else}
-              history.replaceState(null, null, fotorama.activeFrame['url']+'&slideshow=');
+              history.replaceState(null, null, fotorama.activeFrame['url']+(fotorama.activeFrame['url'].indexOf('?')==-1 ? '?' : '&')+'slideshow=');
               jQuery('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
               {/if}
 
