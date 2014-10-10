@@ -1,6 +1,6 @@
 <script>
-var image_w = {$item_height};
-var image_h = {$item_height};
+//var image_w = {$item_height};
+//var image_h = {$item_height};
 </script>
 
 <div id="slideshow">
