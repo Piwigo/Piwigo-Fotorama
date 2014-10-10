@@ -19,9 +19,11 @@
 {foreach from=$items item=thumbnail}
   <a href="{$thumbnail.derivative->get_url()}"
     data-full="{$thumbnail.derivative_big->get_url()}" data-url="{$thumbnail.url}" data-caption="{$thumbnail.TITLE}"
-    {if $Fotorama.nav == 'thumbs' || $Fotorama.fullscreen_nav == 'thumbs'}data-thumb="{$thumbnail.derivative_thumb->get_url()}"{/if}>
-    {assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
-    {if !$Fotorama.square_thumb}<img width="{$thumb_size[0]}" height="{$thumb_size[1]}">{/if}
+    {if $Fotorama_has_thumbs}data-thumb="{$thumbnail.derivative_thumb->get_url()}"{/if}>
+    {if $Fotorama_has_thumbs}
+      {assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
+      {if !$Fotorama.square_thumb}<img width="{$thumb_size[0]}" height="{$thumb_size[1]}">{/if}
+    {/if}
   </a>
 {/foreach}
 </div>

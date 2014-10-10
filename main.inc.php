@@ -150,12 +150,32 @@ function Fotorama_end_picture()
     {
       $type = $big_type;
     }
+
+    if ($conf['Fotorama']['nav'] == 'thumbs' or $conf['Fotorama']['fullscreen_nav'] == 'thumbs')
+    {
+      $has_thumbs = true;
+    }
+    else
+    {
+      $has_thumbs = false;
+    }
     
+    if ($has_thumbs)
+    {
+      if ($conf['Fotorama']['square_thumb'])
+      {
+        $thumb_params = ImageStdParams::get_custom($conf['Fotorama']['thumbheight'], $conf['Fotorama']['thumbheight'], 1, $conf['Fotorama']['thumbheight'], $conf['Fotorama']['thumbheight']);
+      }
+      else
+      {
+        $thumb_params = ImageStdParams::get_custom(9999, $conf['Fotorama']['thumbheight']);
+      }
+    }
+
     $picture = array();
     while ($row = pwg_db_fetch_assoc($result))
     {
       $row['src_image'] = new SrcImage($row);
-//      $row['derivatives'] = DerivativeImage::get_all($row['src_image']);
       $row['derivative'] = DerivativeImage::get_one($type, $row['src_image']);
       if ($row['derivative'] == null)
       {
@@ -167,18 +187,13 @@ function Fotorama_end_picture()
         $row['derivative_big'] = $row['src_image'];
       }
 
-      if ($conf['Fotorama']['square_thumb'])
+      if ($has_thumbs)
       {
-        $thumb_params = ImageStdParams::get_custom($conf['Fotorama']['thumbheight'], $conf['Fotorama']['thumbheight'], 1, $conf['Fotorama']['thumbheight'], $conf['Fotorama']['thumbheight']);
-      }
-      else
-      {
-        $thumb_params = ImageStdParams::get_custom(9999, $conf['Fotorama']['thumbheight']);
-      }
-      $row['derivative_thumb'] = new DerivativeImage($thumb_params, $row['src_image']);;
-      if ($row['derivative_thumb'] == null)
-      {
-        $row['derivative_thumb'] = $row['src_image'];
+        $row['derivative_thumb'] = new DerivativeImage($thumb_params, $row['src_image']);;
+        if ($row['derivative_thumb'] == null)
+        {
+          $row['derivative_thumb'] = $row['src_image'];
+        }
       }
 
       $row['url'] = duplicate_picture_url(
@@ -199,6 +214,7 @@ function Fotorama_end_picture()
     $template->assign('items', $picture);
     $template->assign('current_rank', $page['current_rank']);
     $template->assign(array('Fotorama' => $conf['Fotorama']));
+    $template->assign('Fotorama_has_thumbs', $has_thumbs);
     if (is_file('./themes/'.$user['theme'].'/template/fotorama.tpl'))
     {
       $template->set_filenames( array('slideshow' => realpath('./themes/'.$user['theme'].'/template/fotorama.tpl')));
