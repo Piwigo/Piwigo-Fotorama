@@ -206,7 +206,7 @@ function Fotorama_end_picture()
           )
         );
 
-      $row['TITLE'] = render_element_name($row);
+      $row['TITLE_ESC'] = str_replace('"', '&quot;', render_element_name($row));
       $picture[] = $row;
     }
     
