@@ -18,7 +18,7 @@
   data-keyboard="true">
 {foreach from=$items item=thumbnail}
   <a href="{$thumbnail.derivative->get_url()}"
-    data-full="{$thumbnail.derivative_big->get_url()}" data-url="{$thumbnail.url}" data-caption="{$thumbnail.TITLE_ESC}"
+    data-full="{$thumbnail.derivative_big->get_url()}" data-url="{$thumbnail.url}" data-caption="{$thumbnail.TITLE|escape:html}"
     {if $Fotorama_has_thumbs}data-thumb="{$thumbnail.derivative_thumb->get_url()}"{/if}>
     {if $Fotorama_has_thumbs}
       {assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
