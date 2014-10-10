@@ -38,3 +38,7 @@ $lang['Show caption with image title'] = 'Toon opschrift met de fototitel';
 $lang['Resize to fit window'] = 'Maak het venster passend';
 $lang['Replace picture page'] = 'Vervang een fotopagina';
 $lang['Add close button'] = 'Voeg een sluit-knop toe';
+$lang['milliseconds'] = 'milliseconden';
+$lang['Waiting time before loading a new image'] = 'Wachttijd alvorens een nieuwe afbeelding te laden';
+$lang['Thumbnail is a square (when present)'] = 'Album klik-plaatje is vierkant (indien aanwezig)';
+$lang['Add image info button'] = 'Voeg een Afbeelding Info toets toe';
