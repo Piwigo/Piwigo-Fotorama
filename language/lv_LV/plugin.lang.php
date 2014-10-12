@@ -38,3 +38,7 @@ $lang['Show caption with image title'] = 'Rādīt selekciju ar attēla nosaukumu
 $lang['Resize to fit window'] = 'Izmainīt, lai der logā';
 $lang['Replace picture page'] = 'Samainīt attēla lapu';
 $lang['Add close button'] = 'Pievienot aizvēršanas pogu';
+$lang['Add image info button'] = 'Pievienot attēla informācijas pogu';
+$lang['Waiting time before loading a new image'] = 'Gaidīšanas laiks pirms jauna attēla ielādes';
+$lang['milliseconds'] = 'milisekundes';
+$lang['Thumbnail is a square (when present)'] = 'Sīkbildes ir taisnstūra (ja eksistē)';
