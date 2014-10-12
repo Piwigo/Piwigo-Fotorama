@@ -1,1 +1,1 @@
-基于 Fotorama 的全屏红灯片
+基于 Fotorama 的全屏幻灯片。
