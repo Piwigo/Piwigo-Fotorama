@@ -26,7 +26,7 @@ else
 {
   if ($conf['light_slideshow'])
   {
-    add_event_handler('render_element_content', 'Fotorama_element_content');
+    add_event_handler('render_element_content', 'Fotorama_element_content', EVENT_HANDLER_PRIORITY_NEUTRAL-10);
     add_event_handler('loc_end_picture', 'Fotorama_end_picture');
     add_event_handler('loc_end_page_header', 'Fotorama_end_page_header');
   }
@@ -75,7 +75,7 @@ function Fotorama_init()
   }
 }
 
-function Fotorama_element_content()
+function Fotorama_element_content($content, $picture)
 {
   global $page;
 
@@ -83,6 +83,8 @@ function Fotorama_element_content()
   {
     $page['slideshow'] = true;
   }
+
+  return $content;
 }
 
 function Fotorama_end_picture()
@@ -123,9 +125,13 @@ function Fotorama_end_picture()
     $result = pwg_query($query);
 
     $current = $template->get_template_vars('current');
-    $type = $current['selected_derivative']->get_type();
+    if (isset($current['selected_derivative']))
+    {
+      $type = $current['selected_derivative']->get_type();
+    }
+
     $defined = ImageStdParams::get_defined_type_map();
-    if (!isset($defined[$type]))
+    if (!isset($type) or !isset($defined[$type]))
     {
       $type = pwg_get_session_var('picture_deriv', $conf['derivative_default_size']);
     }
