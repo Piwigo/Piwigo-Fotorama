@@ -31,4 +31,14 @@ $lang['Navigation style'] = 'Slog navigacije';
 $lang['Only fullscreen mode'] = 'Samo celozaslonski način';
 $lang['Stops slideshow at any user action with the fotorama'] = 'Ob vsakem dejanju uporabnika ustavi diaprojekcijo ';
 $lang['What transition to use'] = 'Kateri način prehoda naj se uporabi';
-?>
+$lang['Add close button'] = 'Dodaj gumb Zapri';
+$lang['Add image info button'] = 'Dodaj gumb Informacija o sliki';
+$lang['Replace picture page'] = 'Zamenjaj stran s fotografijami';
+$lang['Resize to fit window'] = 'Prilagodi velikost na velikost okna';
+$lang['Show caption with image title'] = 'Prikaži napis z naslovom slike';
+$lang['Thumbnail height (when present)'] = 'Višina sličice (ko je prisotna)';
+$lang['Thumbnail is a square (when present)'] = 'Sličica je kvadrat (ko je prisotna)';
+$lang['Use crossfade transition on click'] = 'Uporabite Crossfade prehod ob kliku';
+$lang['Waiting time before loading a new image'] = 'Čas čakanja pred nalaganjem (prikazom) nove slike';
+$lang['except an administrator'] = 'razen administrator';
+$lang['milliseconds'] = 'milisekund';
