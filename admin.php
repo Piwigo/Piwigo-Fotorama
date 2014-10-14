@@ -44,7 +44,7 @@ $template->assign(array(
   'Fotorama' => $conf['Fotorama'],
   ));
 
-$template->set_filename('admintools_content', realpath(FOTORAMA_PATH . 'template/admin.tpl'));
-$template->assign_var_from_handle('ADMIN_CONTENT', 'admintools_content');
+$template->set_filename('plugin_admin_content', realpath(FOTORAMA_PATH . 'template/admin.tpl'));
+$template->assign_var_from_handle('ADMIN_CONTENT', 'plugin_admin_content');
 
 ?>
