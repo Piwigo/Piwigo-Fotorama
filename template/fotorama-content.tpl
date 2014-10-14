@@ -33,13 +33,18 @@
     {else}
     if (history.replaceState)
       history.replaceState(null, null, fotorama.activeFrame['url']+(fotorama.activeFrame['url'].indexOf('?')==-1 ? '?' : '&')+'slideshow=');
-    jQuery('#slideshow .browsePath a').attr('href', fotorama.activeFrame['url']);
+    jQuery('#slideshow .browsePath a,a.fotorama__close-icon').attr('href', fotorama.activeFrame['url']);
     {/if}
 
     jQuery('a.fotorama__info-icon').attr('href', fotorama.activeFrame['url']+(fotorama.activeFrame['url'].indexOf('?')==-1 ? '?' : '&')+'slidestop=');
 
     jQuery('#slideshow .showtitle').text(fotorama.activeFrame['caption']);
-    jQuery('#slideshow .imageNumber').text((fotorama.activeFrame['i'])+'/{count($items)}');
+		var idx = fotorama.activeIndex;
+{if isset($view_offset)}
+		if (idx >= {$view_offset.from})
+			idx += {$view_offset.offset};
+{/if}
+    jQuery('#slideshow .imageNumber').text((idx+1)+'/{$TOTAL_ITEMS}');
     document.title = fotorama.activeFrame['caption'] + ' | {$GALLERY_TITLE|escape:javascript}';
   }
 
@@ -47,11 +52,28 @@
   jQuery().ready(function() {
     jQuery('.fotorama')
         // Listen to the events
-        .on('fotorama:showend ',
+        .on('fotorama:showend',
             function (e, fotorama, extra) {
               if (!fullscreen) {
                 update_picture(fotorama);
               }
+							{if !empty($view_borders)}
+{if $view_borders[0] < $view_borders[1]}
+								if (fotorama.activeIndex <= {$view_borders[0]}{if $Fotorama_has_thumbs}+5{/if} ||
+									fotorama.activeIndex >= {$view_borders[1]}{if $Fotorama_has_thumbs}-5{/if} )
+{else}
+								if (fotorama.activeIndex <= {$view_borders[0]}{if $Fotorama_has_thumbs}+5{/if} &&
+									fotorama.activeIndex >= {$view_borders[1]}{if $Fotorama_has_thumbs}-5{/if} )
+{/if}
+								{
+									fotorama.stopAutoplay();
+									var url = fotorama.activeFrame.url + (fotorama.activeFrame.url.indexOf('?')==-1 ? '?' : '&')+'slideshow=';
+{if !$Fotorama.only_fullscreen}
+									if (fullscreen) url += "&fullscreen";
+{/if}
+									window.location = url;
+								}
+							{/if}
             }
         )
         .on('fotorama:fullscreenenter',
@@ -107,6 +129,9 @@ thumb: "{$thumbnail.derivative_thumb->get_url()}",
 thumbratio: {$thumb_size[0]/$thumb_size[1]},
 {/if}
 url: "{$thumbnail.url}"
+{if !empty($thumbnail.video)}
+,video:"{$thumbnail.video}"{if !empty($thumbnail.video_id)},id:"{$thumbnail.video_id}"{/if}
+{/if}
 },{/foreach}
           ]
         });
@@ -120,6 +145,9 @@ url: "{$thumbnail.url}"
       });
       jQuery('html,body').animate({ scrollTop: jQuery('.fotorama').offset().top }, 'slow');
       {/if}
+			{if isset($smarty.get.fullscreen)}
+			jQuery('.fotorama').data('fotorama').requestFullScreen();
+			{/if}
     {/if}
   
   });

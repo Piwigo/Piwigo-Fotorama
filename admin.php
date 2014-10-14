@@ -3,6 +3,7 @@
 defined('FOTORAMA_PATH') or die('Hacking attempt!');
 
 global $conf, $template, $page;
+load_language('plugin.lang', FOTORAMA_PATH);
 
 if (isset($_POST['submit']))
 {
