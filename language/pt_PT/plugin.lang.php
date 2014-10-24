@@ -31,4 +31,14 @@ $lang['Stops slideshow at any user action with the fotorama'] = 'Pára a amostra
 $lang['What transition to use'] = 'Que transição a usar';
 $lang['Fullscreen navigation style'] = 'Modo tela cheia';
 $lang['Only fullscreen mode'] = 'Apenas tela cheia';
-?>
+$lang['Add close button'] = 'Adicionar botão fechar';
+$lang['Add image info button'] = 'Adicionar botão informatção da foto';
+$lang['Replace picture page'] = 'Substituir a página da foto';
+$lang['Resize to fit window'] = 'Redimencionar para caber na janela';
+$lang['Show caption with image title'] = 'Mostrar captação com título da foto';
+$lang['Thumbnail height (when present)'] = 'Altura da miniatura quando presente';
+$lang['Thumbnail is a square (when present)'] = 'Miniatura é um quadrado (quando presente)';
+$lang['Use crossfade transition on click'] = 'Usar a transição diluir ao clicar';
+$lang['Waiting time before loading a new image'] = 'Aguardar algum tempo antes de carregar nova imagem';
+$lang['except an administrator'] = 'excepto um administrador';
+$lang['milliseconds'] = 'milésimos de segubdo';
