@@ -41,3 +41,4 @@ $lang['Use crossfade transition on click'] = 'Dùng hiệu ứng chuyển mờ k
 $lang['Waiting time before loading a new image'] = 'Thời gian chờ trước khi tải một ảnh mới';
 $lang['except an administrator'] = 'ngoại trừ quản trị viên';
 $lang['milliseconds'] = 'mili giây';
+$lang['Thumbnail is a square (when present)'] = 'Hình nhỏ là một hình vuông(nếu có)';
