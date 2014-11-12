@@ -41,3 +41,4 @@ $lang['Enables autoplay'] = 'Активує автозапуск';
 $lang['Allows fullscreen'] = 'Дозволяє повний екран';
 $lang['Add image info button'] = 'Додати кнопку інформації зображення';
 $lang['Add close button'] = 'Додати кнопку закриття';
+$lang['Replace picture page'] = 'Замінити сторінку з зображеннями';
