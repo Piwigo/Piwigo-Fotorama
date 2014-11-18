@@ -38,3 +38,7 @@ $lang['Show caption with image title'] = 'Εμφάνιση λεζάντα με �
 $lang['Resize to fit window'] = 'Αλλαγή μεγέθους για να χωρέσει στο παράθυρο';
 $lang['Replace picture page'] = 'Αντικαταστήστε τη σελίδα της εικόνας';
 $lang['Add close button'] = 'Προσθέστε ένα κουμπί για κλείσιμο.';
+$lang['Add image info button'] = 'Προσθήκη κουμπιού πληροφορίες εικόνας';
+$lang['milliseconds'] = 'milliseconds';
+$lang['Waiting time before loading a new image'] = 'Χρόνος αναμονής πριν φορτωθεί μι νέα εικόνα';
+$lang['Thumbnail is a square (when present)'] = 'Το εικονίδιο είναι τετράγωνο (αν υπάρχει)';
