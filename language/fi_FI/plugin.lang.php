@@ -38,3 +38,7 @@ $lang['except an administrator'] = 'paitsi hallinnollinen käyttäjä';
 $lang['Replace picture page'] = 'Korvaa kuva sivu';
 $lang['Add close button'] = 'Lisää sulkemisnappi';
 $lang['Resize to fit window'] = 'Mukauta koko mahtumaan ikkunaan';
+$lang['Add image info button'] = 'Lisää kuvan tiedot -nappi';
+$lang['Thumbnail is a square (when present)'] = 'Esikatselukuva on neliö (esitettäessä)';
+$lang['Waiting time before loading a new image'] = 'Viive ennen uuden kuvan lataamista';
+$lang['milliseconds'] = 'millisekuntia';
