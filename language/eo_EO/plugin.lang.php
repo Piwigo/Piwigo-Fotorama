@@ -31,4 +31,14 @@ $lang['Stops slideshow at any user action with the fotorama'] = 'Ĉesigi la lumb
 $lang['What transition to use'] = 'Kia transpaso uzi';
 $lang['Fullscreen navigation style'] = 'Stilo laŭ tutekrana navigado';
 $lang['Only fullscreen mode'] = 'Nur tutekrana modo';
-?>
+$lang['Use crossfade transition on click'] = 'Uzi transdissolvan transpason je musklako';
+$lang['Resize to fit window'] = 'Regrandigi por kongrui kun la fenestro';
+$lang['Add close button'] = 'Aldoni ferman butonon';
+$lang['Add image info button'] = 'Aldoni bildinforman butonon';
+$lang['Replace picture page'] = 'Anstataŭigi bildpaĝon';
+$lang['Show caption with image title'] = 'Montri la bildotitolon kiel apudskribo';
+$lang['Thumbnail height (when present)'] = 'Miniatura alteco (se ĉeestas)';
+$lang['Thumbnail is a square (when present)'] = 'Miniatura estas kvadrata (se ĉeestas)';
+$lang['Waiting time before loading a new image'] = 'Atendotempo antaŭ ŝutado de nova bildo';
+$lang['except an administrator'] = 'krom administranto';
+$lang['milliseconds'] = 'milisekondoj';
