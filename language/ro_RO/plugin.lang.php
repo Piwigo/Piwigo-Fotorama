@@ -31,3 +31,4 @@ $lang['Enables shadows'] = 'Permite umbre';
 $lang['Enables loop'] = 'Permite rulare in bucla';
 $lang['Enables autoplay'] = 'Permite pornire automata';
 $lang['Allows fullscreen'] = 'Permite afisare pe ecran intreg';
+$lang['milliseconds'] = 'milisecunde';
