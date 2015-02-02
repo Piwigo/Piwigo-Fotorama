@@ -31,4 +31,7 @@ $lang['Stops slideshow at any user action with the fotorama'] = 'Fotorama ile he
 $lang['What transition to use'] = 'Geçiş nasıl olsun';
 $lang['Fullscreen navigation style'] = 'Tam ekran gezinme stili';
 $lang['Only fullscreen mode'] = 'Sadece tam ekran modu';
-?>
+$lang['Add close button'] = 'Kapat butonu ekle';
+$lang['Add image info button'] = 'Resim bilgisi butonu ekle';
+$lang['Resize to fit window'] = 'Pencereyi sığdırmak için yeniden boyutlandır';
+$lang['milliseconds'] = 'milisaniye';
