@@ -16,6 +16,7 @@ if (isset($_POST['submit']))
     'stopautoplayontouch' => isset($_POST['stopautoplayontouch']),
     'loop' => isset($_POST['loop']),
     'enable_caption' => isset($_POST['enable_caption']),
+    'enable_caption_with' => $_POST['enable_caption_with'],
     'replace_picture' => isset($_POST['replace_picture']),
     'replace_picture_only_users' => isset($_POST['replace_picture_only_users']),
     'clicktransition_crossfade' => isset($_POST['clicktransition_crossfade']),
