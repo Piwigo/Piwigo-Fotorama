@@ -242,6 +242,12 @@ function Fotorama_end_picture()
       );
 
     $row['TITLE'] = render_element_name($row);
+    // VJS integration, is VJS plugin install and it is a supported video file by the plugin
+    if (function_exists('vjs_valid_extension')) {
+       if (vjs_valid_extension(get_extension($row['path'])) === true)
+          $row['video'] = $row['path'];
+       }
+    }
     $picture[] = $row;
   }
   $picture = trigger_change('fotorama_items', $picture, $selection);
