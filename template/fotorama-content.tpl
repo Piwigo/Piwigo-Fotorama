@@ -8,7 +8,7 @@
 {combine_css path="plugins/Fotorama/template/info_button.css"}
 {/if}
 
-<div class="fotorama" data-startindex="{$current_rank}" data-ratio="16/9" data-auto="false"
+<div class="fotorama" data-startindex="{$current_rank}" data-ratio="16/9"
   data-width="100%" data-maxheight="100%" data-minheight="200" data-height="{$item_height}"
   data-shadows="{if $Fotorama.shadows}true{else}false{/if}" data-nav="{$Fotorama.nav}" data-fit="{$Fotorama.fit}"
   data-allowfullscreen="{$Fotorama.allowfullscreen}" data-autoplay="{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}"
@@ -16,6 +16,30 @@
   data-loop="{if $Fotorama.loop}true{else}false{/if}" data-captions:"{if $Fotorama.enable_caption}true{else}false{/if}" data-thumbheight="{$Fotorama.thumbheight}"
   data-thumbwidth="{$Fotorama.thumbheight}"{if $Fotorama.clicktransition_crossfade} data-clicktransition="crossfade"{/if}
   data-keyboard="true">
+
+{foreach from=$items item=thumbnail}
+  <div 
+data-caption="{if $Fotorama.enable_caption_with == 'comment' }{$thumbnail.comment|escape:javascript}{else}{$thumbnail.TITLE|escape:javascript}{/if}"
+data-url="{$thumbnail.url}"
+data-id="{$thumbnail.id}"
+{if $Fotorama_has_thumbs}
+data-thumb="{$thumbnail.derivative_thumb->get_url()}"
+{assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
+data-thumbratio="{$thumb_size[0]/$thumb_size[1]}"
+{/if}
+{if !empty($thumbnail.video) and !empty($thumbnail.video_type)}
+data-isvideo="true">
+        <video poster="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
+                id="my_video_{$thumbnail.id}" controls preload="auto" width="100%" height="{$item_height}">
+                <source src="{$thumbnail.video}" type='{$thumbnail.video_type}'>
+        </video>
+{else}
+data-img="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
+data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
+{/if}
+</div>
+{/foreach}
+
 </div>
 
 {if isset($U_SLIDESHOW_STOP)}
@@ -55,6 +79,56 @@
       history.replaceState(null, null, fotorama.activeFrame['url']+(fotorama.activeFrame['url'].indexOf('?')==-1 ? '?' : '&')+'slideshow=');
     jQuery('#slideshow .browsePath a,a.fotorama__close-icon').attr('href', fotorama.activeFrame['url']);
     {/if}
+
+    if (fotorama.activeFrame['isvideo']) {
+	var player;
+	player = document.getElementById("my_video_"+fotorama.activeFrame['id']);
+	console.log(player);
+	console.log("Duration:"+player.duration);
+	if (player.networkState == 3) {
+		console.log("Error! Media resource could not be decoded. Next...");
+		// Next on error
+		fotorama.show('>');
+	}
+	if (!isNaN(player.duration)) {
+		var runtime;
+		runtime = Math.round(player.duration*1000); // in millsecond
+		{if $Fotorama.autoplay}
+		fotorama.setOptions({literal}{autoplay:runtime}{/literal}); // update fotorama options
+		{/if}
+		console.log("Autoplay Runtime:"+runtime);
+	}
+	// Stop fotorama
+	fotorama.stopAutoplay();
+	// Rewind the begining
+	player.currentTime = 0;
+	player.seeking = false;
+	// Start video
+	{if $Fotorama.autoplay}
+	player.play();
+	{/if}
+	//player.autoplay=true;
+	// Set video player events
+	player.onended = function(e) {
+		{if $Fotorama.autoplay}
+		console.log('Video ended Next...');
+		// Next on end
+		fotorama.show('>');
+		{/if}
+	}
+	player.onerror = function(e) {
+		console.log('Video error Next...');
+		// Next on error
+		fotorama.show('>');
+	}
+	player.onplay = function(e) {
+		console.log('Video play stopAutoplay...');
+		fotorama.stopAutoplay();
+	}
+    } else {
+	// Revert the settings if image
+	fotorama.setOptions({literal}{autoplay:{/literal}{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}{literal}}{/literal});
+    }
 
     jQuery('a.fotorama__info-icon').attr('href', fotorama.activeFrame['url']+(fotorama.activeFrame['url'].indexOf('?')==-1 ? '?' : '&')+'slidestop=');
 
