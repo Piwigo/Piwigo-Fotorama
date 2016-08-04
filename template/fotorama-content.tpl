@@ -146,27 +146,7 @@ data-url="{$thumbnail.url}">
               fullscreen = false;
               {/if}
             }
-        )
-        // Initialize fotorama manually
-        .fotorama({
-          data: [
-{foreach from=$items item=thumbnail}
-{
-caption: "{$thumbnail.TITLE|escape:javascript}",
-full: "{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}",
-img: "{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}",
-{if $Fotorama_has_thumbs}
-thumb: "{$thumbnail.derivative_thumb->get_url()}",
-{assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
-thumbratio: {$thumb_size[0]/$thumb_size[1]},
-{/if}
-url: "{$thumbnail.url}"
-{if !empty($thumbnail.video)}
-,video:"{$thumbnail.video}"{if !empty($thumbnail.video_id)},id:"{$thumbnail.video_id}"{/if}
-{/if}
-},{/foreach}
-          ]
-        });
+        );
 
     {if $Fotorama.only_fullscreen}
     jQuery('.fotorama').data('fotorama').requestFullScreen();
