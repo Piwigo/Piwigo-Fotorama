@@ -8,7 +8,7 @@
 {combine_css path="plugins/Fotorama/template/info_button.css"}
 {/if}
 
-<div class="fotorama" data-startindex="{$current_rank}" data-ratio="16/9" data-auto="false"
+<div class="fotorama" data-startindex="{$current_rank}" data-ratio="16/9"
   data-width="100%" data-maxheight="100%" data-minheight="200" data-height="{$item_height}"
   data-shadows="{if $Fotorama.shadows}true{else}false{/if}" data-nav="{$Fotorama.nav}" data-fit="{$Fotorama.fit}"
   data-allowfullscreen="{$Fotorama.allowfullscreen}" data-autoplay="{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}"
@@ -16,6 +16,38 @@
   data-loop="{if $Fotorama.loop}true{else}false{/if}" data-captions="false" data-thumbheight="{$Fotorama.thumbheight}"
   data-thumbwidth="{$Fotorama.thumbheight}"{if $Fotorama.clicktransition_crossfade} data-clicktransition="crossfade"{/if}
   data-keyboard="true">
+
+foreach from=$items item=thumbnail}
+
+{if !empty($thumbnail.video)}
+  <div
+data-caption="{$thumbnail.TITLE|escape:javascript}"
+{if $Fotorama_has_thumbs}
+data-thumb="{$thumbnail.derivative_thumb->get_url()}"
+{assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
+data-thumbratio="{$thumb_size[0]/$thumb_size[1]}"
+{/if}
+data-url="{$thumbnail.url}">
+        <video poster="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}" 
+                id="my_video_{$thumbnail.id}" controls preload="auto" width="100%" height="{$item_height}">
+                <source src="{$thumbnail.video}" type='video/mp4'>
+        </video>
+  </div>
+{else}
+else}
+<div
+data-caption="{$thumbnail.TITLE|escape:javascript}"
+data-img="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
+{if $Fotorama_has_thumbs}
+data-thumb="{$thumbnail.derivative_thumb->get_url()}"
+{assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
+data-thumbratio="{$thumb_size[0]/$thumb_size[1]}"
+{/if}
+data-url="{$thumbnail.url}">
+</div>
+{/if}
+{/foreach}
+
 </div>
 
 {if isset($U_SLIDESHOW_STOP)}
