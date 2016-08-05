@@ -67,7 +67,7 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
 	console.log(player.duration);
 	if (!isNaN(player.duration)) {
 		var runtime;
-		runtime = player.duration*1000; // in millsecond
+		runtime = Math.round(player.duration*1000); // in millsecond
 		fotorama.setOptions({literal}{autoplay:runtime}{/literal}); // update fotorama options
 		console.log(runtime);
 	}

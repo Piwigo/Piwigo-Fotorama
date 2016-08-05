@@ -261,7 +261,6 @@ function Fotorama_end_picture()
     ));
   $template->assign('item_height', ImageStdParams::get_by_type($type)->max_height());
   $template->assign('items', $picture);
-print_r($picture);
   $template->assign(array('Fotorama' => $conf['Fotorama']));
   $template->assign('Fotorama_has_thumbs', $has_thumbs);
   if (is_file('./themes/'.$user['theme'].'/template/fotorama.tpl'))
