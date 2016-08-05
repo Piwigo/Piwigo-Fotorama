@@ -27,15 +27,15 @@ data-thumb="{$thumbnail.derivative_thumb->get_url()}"
 {assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
 data-thumbratio="{$thumb_size[0]/$thumb_size[1]}"
 {/if}
-{if !empty($thumbnail.video)}
->
+{if !empty($thumbnail.video) and !empty($thumbnail.video_type)}
+data-isvideo="true">
         <video poster="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
                 id="my_video_{$thumbnail.id}" controls preload="auto" width="100%" height="{$item_height}">
-                <source src="{$thumbnail.video}" type='video/mp4'>
+                <source src="{$thumbnail.video}" type='video/{$thumbnail.video_type}'>
         </video>
 {else}
-data-img="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}">
-data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}"
+data-img="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
+data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
 {/if}
 </div>
 {/foreach}
@@ -60,6 +60,22 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}"
     jQuery('#slideshow .browsePath a,a.fotorama__close-icon').attr('href', fotorama.activeFrame['url']);
     {/if}
 
+    if (fotorama.activeFrame['isvideo']) {
+	var player;
+	player = document.getElementById("my_video_"+fotorama.activeFrame['id']);
+	console.log(player);
+	console.log(player.duration);
+	if (!isNaN(player.duration)) {
+		var runtime;
+		runtime = player.duration*1000; // in millsecond
+		fotorama.setOptions({literal}{autoplay:runtime}{/literal}); // update fotorama options
+		console.log(runtime);
+	}
+	player.autoplay=true;
+    } else {
+	fotorama.setOptions({literal}{autoplay:{/literal}{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}{literal}}{/literal});
+    }
+
     jQuery('a.fotorama__info-icon').attr('href', fotorama.activeFrame['url']+(fotorama.activeFrame['url'].indexOf('?')==-1 ? '?' : '&')+'slidestop=');
 
     jQuery('#slideshow .showtitle').text(fotorama.activeFrame['caption']);
@@ -70,6 +86,8 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}"
 {/if}
     jQuery('#slideshow .imageNumber').text((idx+1)+'/{$TOTAL_ITEMS}');
     document.title = fotorama.activeFrame['caption'] + ' | {$GALLERY_TITLE|escape:javascript}';
+
+    console.log(fotorama);
   }
 
   var fullscreen = false;
