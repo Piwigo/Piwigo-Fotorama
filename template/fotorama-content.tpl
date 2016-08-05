@@ -17,35 +17,27 @@
   data-thumbwidth="{$Fotorama.thumbheight}"{if $Fotorama.clicktransition_crossfade} data-clicktransition="crossfade"{/if}
   data-keyboard="true">
 
-foreach from=$items item=thumbnail}
-
-{if !empty($thumbnail.video)}
+{foreach from=$items item=thumbnail}
   <div
 data-caption="{$thumbnail.TITLE|escape:javascript}"
+data-url="{$thumbnail.url}"
+data-id="{$thumbnail.id}"
 {if $Fotorama_has_thumbs}
 data-thumb="{$thumbnail.derivative_thumb->get_url()}"
 {assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
 data-thumbratio="{$thumb_size[0]/$thumb_size[1]}"
 {/if}
-data-url="{$thumbnail.url}">
-        <video poster="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}" 
+{if !empty($thumbnail.video)}
+>
+        <video poster="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
                 id="my_video_{$thumbnail.id}" controls preload="auto" width="100%" height="{$item_height}">
                 <source src="{$thumbnail.video}" type='video/mp4'>
         </video>
-  </div>
 {else}
-else}
-<div
-data-caption="{$thumbnail.TITLE|escape:javascript}"
-data-img="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
-{if $Fotorama_has_thumbs}
-data-thumb="{$thumbnail.derivative_thumb->get_url()}"
-{assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
-data-thumbratio="{$thumb_size[0]/$thumb_size[1]}"
+data-img="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}">
+data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}"
 {/if}
-data-url="{$thumbnail.url}">
 </div>
-{/if}
 {/foreach}
 
 </div>
