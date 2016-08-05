@@ -133,8 +133,12 @@
   <li>
     <input type="checkbox" id="enable_caption" name="enable_caption"{if $Fotorama.enable_caption} checked="checked"{/if}>
     <label for="enable_caption">
-      <b>{'Show caption with image title'|translate}</b>
+      <b>{'Show caption with '|translate}</b>
     </label>
+    <select class="categoryDropDown" id="enable_caption_with" name="enable_caption_with">
+       <option value="title"{if $Fotorama.enable_caption_with == 'title'} selected="selected"{/if}>{'title'|translate}</option>
+       <option value="comment"{if $Fotorama.enable_caption_with == 'comment'} selected="selected"{/if}>{'description'|translate}</option>
+    </select>
   </li>
   <li>
     <input type="checkbox" id="replace_picture" name="replace_picture"{if $Fotorama.replace_picture} checked="checked"{/if}>
@@ -205,6 +209,12 @@
     else {
       jQuery('#period').prop('disabled', true);
     }
+    if(jQuery('#enable_caption').is(":checked")) {
+      jQuery('#enable_caption_with').prop('disabled', false);
+    }
+    else {
+      jQuery('#enable_caption_with').prop('disabled', true);
+    }
   }
   jQuery().ready(function() {
     update_Fotorama_state();
@@ -224,5 +234,7 @@
   jQuery('#autoplay').change(function() {
     update_Fotorama_state();
   });
-  
+  jQuery('#enable_caption').change(function() {
+    update_Fotorama_state();
+  });
 {/literal}{/footer_script}
