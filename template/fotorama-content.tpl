@@ -64,15 +64,33 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
 	var player;
 	player = document.getElementById("my_video_"+fotorama.activeFrame['id']);
 	console.log(player);
-	console.log(player.duration);
+	console.log("Duration:"+player.duration);
+	if (player.networkState == 3) {
+		console.log("Error! Media resource could not be decoded.");
+		// Next on error
+		fotorama.show('>');
+	}
 	if (!isNaN(player.duration)) {
 		var runtime;
 		runtime = Math.round(player.duration*1000); // in millsecond
 		fotorama.setOptions({literal}{autoplay:runtime}{/literal}); // update fotorama options
-		console.log(runtime);
+		console.log("Autoplay Runtime:"+runtime);
 	}
+	fotorama.stopAutoplay();
 	player.autoplay=true;
+	// Set video player events
+	player.onended = function(e) {
+		console.log('Video ended');
+		// Next on error
+		fotorama.show('>');
+	}
+	player.onerror = function(e) {
+		console.log('Video error');
+		// Next on error
+		fotorama.show('>');
+	}
     } else {
+	// Revert the settings if image
 	fotorama.setOptions({literal}{autoplay:{/literal}{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}{literal}}{/literal});
     }
 
