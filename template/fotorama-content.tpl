@@ -31,7 +31,7 @@ data-thumbratio="{$thumb_size[0]/$thumb_size[1]}"
 data-isvideo="true">
         <video poster="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
                 id="my_video_{$thumbnail.id}" controls preload="auto" width="100%" height="{$item_height}">
-                <source src="{$thumbnail.video}" type='video/{$thumbnail.video_type}'>
+                <source src="{$thumbnail.video}" type='{$thumbnail.video_type}'>
         </video>
 {else}
 data-img="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
@@ -66,7 +66,7 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
 	console.log(player);
 	console.log("Duration:"+player.duration);
 	if (player.networkState == 3) {
-		console.log("Error! Media resource could not be decoded.");
+		console.log("Error! Media resource could not be decoded. Next...");
 		// Next on error
 		fotorama.show('>');
 	}
@@ -76,16 +76,22 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
 		fotorama.setOptions({literal}{autoplay:runtime}{/literal}); // update fotorama options
 		console.log("Autoplay Runtime:"+runtime);
 	}
+	// Stop fotorama
 	fotorama.stopAutoplay();
-	player.autoplay=true;
+	// Rewind the begining
+	player.currentTime = 0;
+	player.seeking = false;
+	// Start video
+	player.play();
+	//player.autoplay=true;
 	// Set video player events
 	player.onended = function(e) {
-		console.log('Video ended');
+		console.log('Video ended Next...');
 		// Next on error
 		fotorama.show('>');
 	}
 	player.onerror = function(e) {
-		console.log('Video error');
+		console.log('Video error Next...');
 		// Next on error
 		fotorama.show('>');
 	}
