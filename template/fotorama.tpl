@@ -15,6 +15,11 @@ var image_h = {$item_height};
 
   <div id="imageToolBar">
 	<div class="imageNumber">{$PHOTO}</div>
+	<div class="navigationButtons">
+		<a href="#" id='play_link' onlick="toggle_play();" title="Pause slideshow">
+			<span id='play_span' class="pwg-icon pwg-icon-pause"></span><span id="play_text" class="pwg-button-text">Pause slideshow</span>
+		</a>
+	</div>
   </div>
 
   <div id="content">

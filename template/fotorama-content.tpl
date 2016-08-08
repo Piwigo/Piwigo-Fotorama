@@ -18,7 +18,7 @@
   data-keyboard="true">
 
 {foreach from=$items item=thumbnail}
-  <div
+  <div 
 data-caption="{if $Fotorama.enable_caption_with == 'comment' }{$thumbnail.comment|escape:javascript}{else}{$thumbnail.TITLE|escape:javascript}{/if}"
 data-url="{$thumbnail.url}"
 data-id="{$thumbnail.id}"
@@ -49,7 +49,28 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
 
 {footer_script require='jquery'}
   window.blockFotoramaData = true;
-  
+
+$( '#play_link' ).on( "click", function( event ) {
+	event.preventDefault();
+	var link, span, text;
+	console.log("toogle_play");
+	link = document.getElementById("play_link");
+	span = document.getElementById("play_span");
+	text = document.getElementById("play_text");
+	if (span.className == "pwg-icon pwg-icon-play") {
+		jQuery('.fotorama').data('fotorama').stopAutoplay();
+		link.title = "Pause slideshow";
+		text.innerHTML = "Pause slideshow";
+		span.className = "pwg-icon pwg-icon-pause";
+	} else {
+		jQuery('.fotorama').data('fotorama').startAutoplay();
+		link.title = "Play slideshow";
+		text.innerHTML = "Play slideshow";
+		span.className = "pwg-icon pwg-icon-play";
+	}
+
+});
+
   function update_picture(fotorama) {
     {if isset($replace_picture)}
     if (history.replaceState)
