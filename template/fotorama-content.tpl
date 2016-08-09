@@ -94,7 +94,9 @@ $( '#play_link' ).on( "click", function( event ) {
 	if (!isNaN(player.duration)) {
 		var runtime;
 		runtime = Math.round(player.duration*1000); // in millsecond
+		{if $Fotorama.autoplay}
 		fotorama.setOptions({literal}{autoplay:runtime}{/literal}); // update fotorama options
+		{/if}
 		console.log("Autoplay Runtime:"+runtime);
 	}
 	// Stop fotorama
@@ -103,13 +105,17 @@ $( '#play_link' ).on( "click", function( event ) {
 	player.currentTime = 0;
 	player.seeking = false;
 	// Start video
+	{if $Fotorama.autoplay}
 	player.play();
+	{/if}
 	//player.autoplay=true;
 	// Set video player events
 	player.onended = function(e) {
+		{if $Fotorama.autoplay}
 		console.log('Video ended Next...');
 		// Next on error
 		fotorama.show('>');
+		{/if}
 	}
 	player.onerror = function(e) {
 		console.log('Video error Next...');
