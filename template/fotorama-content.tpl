@@ -8,7 +8,7 @@
 {combine_css path="plugins/Fotorama/template/info_button.css"}
 {/if}
 
-<div class="fotorama" data-startindex="{$current_rank}" data-ratio="16/9" data-auto="false"
+<div class="fotorama" data-startindex="{$current_rank}" data-ratio="16/9"
   data-width="100%" data-maxheight="100%" data-minheight="200" data-height="{$item_height}"
   data-shadows="{if $Fotorama.shadows}true{else}false{/if}" data-nav="{$Fotorama.nav}" data-fit="{$Fotorama.fit}"
   data-allowfullscreen="{$Fotorama.allowfullscreen}" data-autoplay="{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}"
@@ -16,6 +16,30 @@
   data-loop="{if $Fotorama.loop}true{else}false{/if}" data-captions="false" data-thumbheight="{$Fotorama.thumbheight}"
   data-thumbwidth="{$Fotorama.thumbheight}"{if $Fotorama.clicktransition_crossfade} data-clicktransition="crossfade"{/if}
   data-keyboard="true">
+
+{foreach from=$items item=thumbnail}
+  <div 
+data-caption="{if $Fotorama.enable_caption_with == 'comment' }{$thumbnail.comment|escape:javascript}{else}{$thumbnail.TITLE|escape:javascript}{/if}"
+data-url="{$thumbnail.url}"
+data-id="{$thumbnail.id}"
+{if $Fotorama_has_thumbs}
+data-thumb="{$thumbnail.derivative_thumb->get_url()}"
+{assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
+data-thumbratio="{$thumb_size[0]/$thumb_size[1]}"
+{/if}
+{if !empty($thumbnail.video) and !empty($thumbnail.video_type)}
+data-isvideo="true">
+        <video poster="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
+                id="my_video_{$thumbnail.id}" controls preload="auto" width="100%" height="{$item_height}">
+                <source src="{$thumbnail.video}" type='{$thumbnail.video_type}'>
+        </video>
+{else}
+data-img="{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}"
+data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
+{/if}
+</div>
+{/foreach}
+
 </div>
 
 {if isset($U_SLIDESHOW_STOP)}
@@ -25,7 +49,28 @@
 
 {footer_script require='jquery'}
   window.blockFotoramaData = true;
-  
+
+$( '#play_link' ).on( "click", function( event ) {
+	event.preventDefault();
+	var link, span, text;
+	console.log("toogle_autoplay");
+	link = document.getElementById("play_link");
+	span = document.getElementById("play_span");
+	text = document.getElementById("play_text");
+	if (span.className == "pwg-icon pwg-icon-play") {
+		jQuery('.fotorama').data('fotorama').stopAutoplay();
+		link.title = "Pause slideshow";
+		text.innerHTML = "Pause slideshow";
+		span.className = "pwg-icon pwg-icon-pause";
+	} else {
+		jQuery('.fotorama').data('fotorama').setOptions({literal}{autoplay:{/literal}{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}{literal}}{/literal});
+		jQuery('.fotorama').data('fotorama').startAutoplay();
+		link.title = "Play slideshow";
+		text.innerHTML = "Play slideshow";
+		span.className = "pwg-icon pwg-icon-play";
+	}
+});
+
   function update_picture(fotorama) {
     {if isset($replace_picture)}
     if (history.replaceState)
@@ -35,6 +80,56 @@
       history.replaceState(null, null, fotorama.activeFrame['url']+(fotorama.activeFrame['url'].indexOf('?')==-1 ? '?' : '&')+'slideshow=');
     jQuery('#slideshow .browsePath a,a.fotorama__close-icon').attr('href', fotorama.activeFrame['url']);
     {/if}
+
+    if (fotorama.activeFrame['isvideo']) {
+	var player;
+	player = document.getElementById("my_video_"+fotorama.activeFrame['id']);
+	console.log(player);
+	console.log("Duration:"+player.duration);
+	if (player.networkState == 3) {
+		console.log("Error! Media resource could not be decoded. Next...");
+		// Next on error
+		fotorama.show('>');
+	}
+	if (!isNaN(player.duration)) {
+		var runtime;
+		runtime = Math.round(player.duration*1000); // in millsecond
+		{if $Fotorama.autoplay}
+		fotorama.setOptions({literal}{autoplay:runtime}{/literal}); // update fotorama options
+		{/if}
+		console.log("Autoplay Runtime:"+runtime);
+	}
+	// Stop fotorama
+	fotorama.stopAutoplay();
+	// Rewind the begining
+	player.currentTime = 0;
+	player.seeking = false;
+	// Start video
+	{if $Fotorama.autoplay}
+	player.play();
+	{/if}
+	//player.autoplay=true;
+	// Set video player events
+	player.onended = function(e) {
+		{if $Fotorama.autoplay}
+		console.log('Video ended Next...');
+		// Next on end
+		fotorama.show('>');
+		{/if}
+	}
+	player.onerror = function(e) {
+		console.log('Video error Next...');
+		// Next on error
+		fotorama.show('>');
+	}
+	player.onplay = function(e) {
+		console.log('Video play stopAutoplay...');
+		fotorama.stopAutoplay();
+	}
+    } else {
+	// Revert the settings if image
+	fotorama.setOptions({literal}{autoplay:{/literal}{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}{literal}}{/literal});
+    }
 
     jQuery('a.fotorama__info-icon').attr('href', fotorama.activeFrame['url']+(fotorama.activeFrame['url'].indexOf('?')==-1 ? '?' : '&')+'slidestop=');
 
@@ -46,6 +141,8 @@
 {/if}
     jQuery('#slideshow .imageNumber').text((idx+1)+'/{$TOTAL_ITEMS}');
     document.title = fotorama.activeFrame['caption'] + ' | {$GALLERY_TITLE|escape:javascript}';
+
+    console.log(fotorama);
   }
 
   var fullscreen = false;
@@ -54,9 +151,7 @@
         // Listen to the events
         .on('fotorama:showend',
             function (e, fotorama, extra) {
-              if (!fullscreen) {
                 update_picture(fotorama);
-              }
 							{if !empty($view_borders)}
 {if $view_borders[0] < $view_borders[1]}
 								if (fotorama.activeIndex <= {$view_borders[0]}{if $Fotorama_has_thumbs}+5{/if} ||
@@ -114,27 +209,7 @@
               fullscreen = false;
               {/if}
             }
-        )
-        // Initialize fotorama manually
-        .fotorama({
-          data: [
-{foreach from=$items item=thumbnail}
-{
-caption: "{$thumbnail.TITLE|escape:javascript}",
-full: "{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}",
-img: "{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}",
-{if $Fotorama_has_thumbs}
-thumb: "{$thumbnail.derivative_thumb->get_url()}",
-{assign var=thumb_size value=$thumbnail.derivative_thumb->get_size()}
-thumbratio: {$thumb_size[0]/$thumb_size[1]},
-{/if}
-url: "{$thumbnail.url}"
-{if !empty($thumbnail.video)}
-,video:"{$thumbnail.video}"{if !empty($thumbnail.video_id)},id:"{$thumbnail.video_id}"{/if}
-{/if}
-},{/foreach}
-          ]
-        });
+        );
 
     {if $Fotorama.only_fullscreen}
     jQuery('.fotorama').data('fotorama').requestFullScreen();

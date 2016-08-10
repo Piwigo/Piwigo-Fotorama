@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Fotorama
-Version: auto
+Version: 2.7.r
 Description: Fotorama based full-screen slideshow
-Plugin URI: auto
+Plugin URI: http://piwigo.org/ext/extension_view.php?eid=727
 Author: JanisV
 */
 
@@ -113,6 +113,7 @@ function Fotorama_end_picture()
 
   load_language('plugin.lang', FOTORAMA_PATH);
 
+
   $split_limit = 400;
   if ('mobile' == get_device())
     $split_limit /= 2;
@@ -158,6 +159,7 @@ function Fotorama_end_picture()
     WHERE id IN ('.implode(',', $selection).')
     ORDER BY FIELD(id, '.implode(',', $selection).')
   ;';
+
 
   $result = pwg_query($query);
 
@@ -242,6 +244,13 @@ function Fotorama_end_picture()
       );
 
     $row['TITLE'] = render_element_name($row);
+    // VJS integration, is plugin VJS install and it is a supported video file by the plugin
+    if (function_exists('vjs_valid_extension') and function_exists('vjs_get_mimetype_from_ext')) {
+        if (vjs_valid_extension(get_extension($row['path'])) === true) {
+            $row['video'] = $row['path'];
+            $row['video_type'] = vjs_get_mimetype_from_ext(get_extension($row['path']));
+	}
+    }
     $picture[] = $row;
   }
   $picture = trigger_change('fotorama_items', $picture, $selection);
