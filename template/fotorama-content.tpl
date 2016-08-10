@@ -53,7 +53,7 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
 $( '#play_link' ).on( "click", function( event ) {
 	event.preventDefault();
 	var link, span, text;
-	console.log("toogle_play");
+	console.log("toogle_autoplay");
 	link = document.getElementById("play_link");
 	span = document.getElementById("play_span");
 	text = document.getElementById("play_text");
@@ -63,12 +63,12 @@ $( '#play_link' ).on( "click", function( event ) {
 		text.innerHTML = "Pause slideshow";
 		span.className = "pwg-icon pwg-icon-pause";
 	} else {
+		jQuery('.fotorama').data('fotorama').setOptions({literal}{autoplay:{/literal}{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}{literal}}{/literal});
 		jQuery('.fotorama').data('fotorama').startAutoplay();
 		link.title = "Play slideshow";
 		text.innerHTML = "Play slideshow";
 		span.className = "pwg-icon pwg-icon-play";
 	}
-
 });
 
   function update_picture(fotorama) {
@@ -113,7 +113,7 @@ $( '#play_link' ).on( "click", function( event ) {
 	player.onended = function(e) {
 		{if $Fotorama.autoplay}
 		console.log('Video ended Next...');
-		// Next on error
+		// Next on end
 		fotorama.show('>');
 		{/if}
 	}
@@ -121,6 +121,10 @@ $( '#play_link' ).on( "click", function( event ) {
 		console.log('Video error Next...');
 		// Next on error
 		fotorama.show('>');
+	}
+	player.onplay = function(e) {
+		console.log('Video play stopAutoplay...');
+		fotorama.stopAutoplay();
 	}
     } else {
 	// Revert the settings if image
