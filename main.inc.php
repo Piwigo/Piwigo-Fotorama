@@ -242,6 +242,7 @@ function Fotorama_end_picture()
       );
 
     $row['TITLE'] = render_element_name($row);
+    $row['DESCRIPTION'] = render_element_description($row);
     $picture[] = $row;
   }
   $picture = trigger_change('fotorama_items', $picture, $selection);
