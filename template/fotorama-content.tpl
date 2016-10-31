@@ -15,7 +15,8 @@
   data-transition="{$Fotorama.transition}" data-stopautoplayontouch="{if $Fotorama.stopautoplayontouch}true{else}false{/if}"
   data-loop="{if $Fotorama.loop}true{else}false{/if}" data-captions:"{if $Fotorama.enable_caption}true{else}false{/if}" data-thumbheight="{$Fotorama.thumbheight}"
   data-thumbwidth="{$Fotorama.thumbheight}"{if $Fotorama.clicktransition_crossfade} data-clicktransition="crossfade"{/if}
-  data-keyboard="true">
+  data-keyboard="true"
+  data-click="false">
 
 {foreach from=$items item=thumbnail}
   <div 
@@ -50,26 +51,6 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
 {footer_script require='jquery'}
   window.blockFotoramaData = true;
 
-  $( '#play_link' ).on( "click", function( event ) {
-    event.preventDefault();
-    var link, span, text;
-    link = document.getElementById("play_link");
-    span = document.getElementById("play_span");
-    text = document.getElementById("play_text");
-    if (span.className == "pwg-icon pwg-icon-play") {
-      jQuery('.fotorama').data('fotorama').stopAutoplay();
-      link.title = "Pause slideshow";
-      text.innerHTML = "Pause slideshow";
-      span.className = "pwg-icon pwg-icon-pause";
-    } else {
-      jQuery('.fotorama').data('fotorama').setOptions({literal}{autoplay:{/literal}{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}{literal}}{/literal});
-      jQuery('.fotorama').data('fotorama').startAutoplay();
-      link.title = "Play slideshow";
-      text.innerHTML = "Play slideshow";
-      span.className = "pwg-icon pwg-icon-play";
-    }
-  });
-
   function update_picture(fotorama) {
     {if isset($replace_picture)}
     if (history.replaceState)
@@ -81,50 +62,43 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
     {/if}
 
     if (fotorama.activeFrame['isvideo']) {
-	var player;
-	player = document.getElementById("my_video_"+fotorama.activeFrame['id']);
-	console.log(player);
-	console.log("Duration:"+player.duration);
-	if (player.networkState == 3) {
-		console.log("Error! Media resource could not be decoded. Next...");
-		// Next on error
-		fotorama.show('>');
-	}
-	if (!isNaN(player.duration)) {
-		var runtime;
-		runtime = Math.round(player.duration*1000); // in millsecond
-		{if $Fotorama.autoplay}
-		fotorama.setOptions({literal}{autoplay:runtime}{/literal}); // update fotorama options
-		{/if}
-		console.log("Autoplay Runtime:"+runtime);
-	}
-	// Stop fotorama
-	fotorama.stopAutoplay();
-	// Rewind the begining
-	player.currentTime = 0;
-	player.seeking = false;
-	// Start video
-	{if $Fotorama.autoplay}
-	player.play();
-	{/if}
-	//player.autoplay=true;
-	// Set video player events
-	player.onended = function(e) {
-		{if $Fotorama.autoplay}
-		console.log('Video ended Next...');
-		// Next on end
-		fotorama.show('>');
-		{/if}
-	}
-	player.onerror = function(e) {
-		console.log('Video error Next...');
-		// Next on error
-		fotorama.show('>');
-	}
-	player.onplay = function(e) {
-		console.log('Video play stopAutoplay...');
-		fotorama.stopAutoplay();
-	}
+        var player;
+        player = document.getElementById("my_video_"+fotorama.activeFrame['id']);
+        if (player.networkState == 3) {
+            // Next on error
+            fotorama.show('>');
+        }
+        if (!isNaN(player.duration)) {
+            var runtime;
+            runtime = Math.round(player.duration*1000); // in millsecond
+            {if $Fotorama.autoplay}
+            //fotorama.setOptions({literal}{autoplay:runtime}{/literal}); // update fotorama options
+            {/if}
+        }
+        // Stop fotorama
+        fotorama.stopAutoplay();
+        // Rewind the begining
+        player.currentTime = 0;
+        player.seeking = false;
+        // Start video
+        {if $Fotorama.autoplay}
+        player.play();
+        {/if}
+        //player.autoplay=true;
+        // Set video player events
+        player.onended = function(e) {
+            {if $Fotorama.autoplay}
+            // Next on end
+            fotorama.show('>');
+            {/if}
+        }
+        player.onerror = function(e) {
+            // Next on error
+            fotorama.show('>');
+        }
+        player.onplay = function(e) {
+            fotorama.stopAutoplay();
+        }
     } else {
 	// Revert the settings if image
 	fotorama.setOptions({literal}{autoplay:{/literal}{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}{literal}}{/literal});
@@ -258,21 +232,6 @@ url: "{$thumbnail.url}"
   {if $Fotorama.info_button}
   jQuery('.fotorama').on('fotorama:ready', function (e, fotorama) {
     jQuery('.fotorama__info-icon').detach().insertAfter('.fotorama__fullscreen-icon');
-  });
-  {/if}
-  
-  {if $Fotorama.autoplay}
-  $(document).keypress(function(e) {
-    if(e.which == 43) {
-      jQuery('.fotorama').data('fotorama').setOptions({
-        autoplay: jQuery('.fotorama').data('fotorama').options['autoplay'] * 1.4
-      });
-    }
-    if(e.which == 45) {
-      jQuery('.fotorama').data('fotorama').setOptions({
-        autoplay: jQuery('.fotorama').data('fotorama').options['autoplay'] / 1.4
-      });
-    }
   });
   {/if}
 {/footer_script}
