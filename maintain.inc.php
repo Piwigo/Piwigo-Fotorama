@@ -18,6 +18,7 @@ class Fotorama_maintain extends PluginMaintain
     'fullscreen_nav' => 'false',
     'only_fullscreen' => false,
     'enable_caption' => false,
+    'enable_caption_with' => 'title',
     'thumbheight' => 64,
     'replace_picture' => false,
     'replace_picture_only_users' => false,

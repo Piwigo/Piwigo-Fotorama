@@ -138,7 +138,7 @@
           data: [
 {foreach from=$items item=thumbnail}
 {
-caption: "{$thumbnail.TITLE|escape:javascript}",
+caption: "{if $Fotorama.enable_caption_with == 'comment' }{$thumbnail.DESCRIPTION|escape:javascript}{else}{$thumbnail.TITLE|escape:javascript}{/if}",
 full: "{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}",
 img: "{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}",
 {if $Fotorama_has_thumbs}
