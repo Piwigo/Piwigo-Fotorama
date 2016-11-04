@@ -74,9 +74,7 @@
         // Listen to the events
         .on('fotorama:showend',
             function (e, fotorama, extra) {
-              if (!fullscreen) {
                 update_picture(fotorama);
-              }
 							{if !empty($view_borders)}
 {if $view_borders[0] < $view_borders[1]}
 								if (fotorama.activeIndex <= {$view_borders[0]}{if $Fotorama_has_thumbs}+5{/if} ||
