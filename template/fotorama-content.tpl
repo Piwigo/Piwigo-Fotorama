@@ -13,7 +13,7 @@
   data-shadows="{if $Fotorama.shadows}true{else}false{/if}" data-nav="{$Fotorama.nav}" data-fit="{$Fotorama.fit}"
   data-allowfullscreen="{$Fotorama.allowfullscreen}" data-autoplay="{if $Fotorama.autoplay}{$Fotorama.period}{else}false{/if}"
   data-transition="{$Fotorama.transition}" data-stopautoplayontouch="{if $Fotorama.stopautoplayontouch}true{else}false{/if}"
-  data-loop="{if $Fotorama.loop}true{else}false{/if}" data-captions="false" data-thumbheight="{$Fotorama.thumbheight}"
+  data-loop="{if $Fotorama.loop}true{else}false{/if}" data-captions:"{if $Fotorama.enable_caption}true{else}false{/if}" data-thumbheight="{$Fotorama.thumbheight}"
   data-thumbwidth="{$Fotorama.thumbheight}"{if $Fotorama.clicktransition_crossfade} data-clicktransition="crossfade"{/if}
   data-keyboard="true">
 </div>
@@ -98,9 +98,6 @@
             function (e, fotorama, extra) {
               fotorama.setOptions({
                 nav: "{$Fotorama.fullscreen_nav}",
-                {if $Fotorama.enable_caption}
-                captions: "true",
-                {/if}
               });
               {if $Fotorama.autoplay}
               fotorama.startAutoplay();
@@ -122,9 +119,6 @@
 
               fotorama.setOptions({
                 nav: "{$Fotorama.nav}",
-                {if $Fotorama.enable_caption}
-                captions: "false",
-                {/if}
               });
 
               update_picture(fotorama);
