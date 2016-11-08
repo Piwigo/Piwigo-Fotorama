@@ -51,6 +51,13 @@ class Fotorama_maintain extends PluginMaintain
       $conf['Fotorama'] = serialize($new_conf);
       conf_update_param('Fotorama', $conf['Fotorama']);
     }
+
+    // add a new column to existing table
+    $result = pwg_query('SHOW COLUMNS FROM `'.HISTORY_TABLE.'` LIKE "is_slideshow";');
+    if (!pwg_db_num_rows($result))
+    {
+      pwg_query('ALTER TABLE `' . HISTORY_TABLE . '` ADD `is_slideshow` enum(\'true\',\'false\') NOT NULL DEFAULT \'false\';');
+    }
     
     $this->installed = true;
   }
@@ -67,9 +74,16 @@ class Fotorama_maintain extends PluginMaintain
   {
   }
 
+  function update($old_version, $new_version, &$errors=array())
+  {
+    $this->install($new_version, $errors);
+  }
+
   function uninstall()
   {
     conf_delete_param('Fotorama');
+
+    pwg_query('ALTER TABLE `'. HISTORY_TABLE .'` DROP `is_slideshow`;');
   }
 }
 
