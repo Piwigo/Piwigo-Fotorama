@@ -66,6 +66,17 @@
 {/if}
     jQuery('#slideshow .imageNumber').text((idx+1)+'/{$TOTAL_ITEMS}');
     document.title = fotorama.activeFrame['caption'] + ' | {$GALLERY_TITLE|escape:javascript}';
+
+    jQuery.ajax({
+      type: "POST",
+      url: 'ws.php?format=json&method=fotorama.images.logHistory',
+      data: {
+        image_id:fotorama.activeFrame['image_id'],
+        {if !empty($fotorama_log_history.cat_id)}cat_id:{$fotorama_log_history.cat_id},{/if}
+        {if !empty($fotorama_log_history.section)}section:"{$fotorama_log_history.section}",{/if}
+        {if !empty($fotorama_log_history.tags_string)}tags_string:"{$fotorama_log_history.tags_string}",{/if}
+      }
+    });
   }
 
   var fullscreen = false;
@@ -132,6 +143,7 @@
           data: [
 {foreach from=$items item=thumbnail}
 {
+image_id:{$thumbnail.id},
 caption: "{if $Fotorama.enable_caption_with == 'comment' }{$thumbnail.DESCRIPTION|escape:javascript}{else}{$thumbnail.TITLE|escape:javascript}{/if}",
 full: "{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}",
 img: "{str_replace('&amp;', '&', $thumbnail.derivative->get_url())}",

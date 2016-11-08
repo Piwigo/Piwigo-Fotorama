@@ -265,6 +265,16 @@ function Fotorama_end_picture()
     $template->set_filenames( array('slideshow' => realpath(FOTORAMA_PATH.'template/fotorama.tpl')));
   }
   $template->assign('FOTORAMA_CONTENT_PATH', realpath(FOTORAMA_PATH.'template/fotorama-content.tpl'));
+
+  // variables to log history
+  $template->assign(
+    'fotorama_log_history',
+    array(
+      'cat_id' => @$page['category']['id'],
+      'section' => @$page['section'],
+      'tags_string' => @implode(',', @$page['tag_ids']),
+      )
+    );
 }
 
 function Fotorama_end_page_header()
@@ -289,4 +299,50 @@ function Fotorama_admin_menu($menu)
   return $menu;
 }
 
-?>
+add_event_handler('ws_add_methods', 'Fotorama_add_methods');
+function Fotorama_add_methods($arr)
+{
+  $service = &$arr[0];
+
+  $service->addMethod(
+    'fotorama.images.logHistory',
+    'ws_Fotorama_log_history',
+    array(
+      'image_id' => array('type'=>WS_TYPE_ID),
+      'cat_id' => array('type'=>WS_TYPE_ID, 'default'=>null),
+      'section' => array('default'=>null),
+      'tags_string' => array('default'=>null),
+      ),
+    'Log visit in history'
+    );
+}
+
+function ws_Fotorama_log_history($params, &$service)
+{
+  global $logger, $page;
+
+  if (!empty($params['section']) and in_array($params['section'], get_enums(HISTORY_TABLE, 'section')))
+  {
+    $page['section'] = $params['section'];
+  }
+
+  if (!empty($params['cat_id']))
+  {
+    $page['category'] = array('id' => $params['cat_id']);
+  }
+
+  if (!empty($params['tags_string']) and preg_match('/^\d+(,\d+)*$/', $params['tags_string']))
+  {
+    $page['tag_ids'] = explode(',', $params['tags_string']);
+  }
+
+  pwg_log($params['image_id'], 'picture');
+
+  $history_id = pwg_db_insert_id(HISTORY_TABLE);
+
+  single_update(
+    HISTORY_TABLE,
+    array('is_slideshow' => 'true'),
+    array('id' => $history_id)
+    );
+}
