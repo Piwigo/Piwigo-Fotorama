@@ -20,7 +20,7 @@
 
 {foreach from=$items item=thumbnail}
   <div 
-data-caption="{if $Fotorama.enable_caption_with == 'comment' }{$thumbnail.comment|escape:javascript}{else}{$thumbnail.TITLE|escape:javascript}{/if}"
+data-caption="{if $Fotorama.enable_caption_with == 'comment' }{$thumbnail.DESCRIPTION|escape:javascript}{else}{$thumbnail.TITLE|escape:javascript}{/if}"
 data-url="{$thumbnail.url}"
 data-id="{$thumbnail.id}"
 {if $Fotorama_has_thumbs}
