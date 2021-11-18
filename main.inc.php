@@ -1,10 +1,11 @@
 <?php
 /*
 Plugin Name: Fotorama
-Version: 2.7.r
+Version: auto
 Description: Fotorama based full-screen slideshow
 Plugin URI: http://piwigo.org/ext/extension_view.php?eid=727
 Author: JanisV
+Has Settings: webmaster
 */
 
 global $conf;
@@ -17,11 +18,7 @@ define('FOTORAMA_ID',       basename(dirname(__FILE__)));
 define('FOTORAMA_PATH' ,    PHPWG_PLUGINS_PATH . FOTORAMA_ID . '/');
 
 add_event_handler('init', 'Fotorama_init');
-if (defined('IN_ADMIN'))
-{
-  add_event_handler('get_admin_plugin_menu_links', 'Fotorama_admin_menu');
-}
-elseif ($conf['light_slideshow'])
+if (!defined('IN_ADMIN'))
 {
   add_event_handler('render_element_content', 'Fotorama_element_content', EVENT_HANDLER_PRIORITY_NEUTRAL-10);
   add_event_handler('loc_end_picture', 'Fotorama_end_picture');
@@ -296,16 +293,6 @@ function Fotorama_end_page_header()
     'next',
     'last',
     ));
-}
-
-function Fotorama_admin_menu($menu)
-{
-  $menu[] = array(
-    'NAME' => 'Fotorama',
-    'URL'  => get_root_url() . 'admin.php?page=plugin-' . FOTORAMA_ID,
-  );
-
-  return $menu;
 }
 
 add_event_handler('ws_add_methods', 'Fotorama_add_methods');
