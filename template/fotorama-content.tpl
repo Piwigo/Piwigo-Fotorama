@@ -119,7 +119,7 @@ data-full="{str_replace('&amp;', '&', $thumbnail.derivative_big->get_url())}">
       type: "POST",
       url: 'ws.php?format=json&method=fotorama.images.logHistory',
       data: {
-        image_id:fotorama.activeFrame['image_id'],
+        image_id:fotorama.activeFrame['id'],
         {if !empty($fotorama_log_history.cat_id)}cat_id:{$fotorama_log_history.cat_id},{/if}
         {if !empty($fotorama_log_history.section)}section:"{$fotorama_log_history.section}",{/if}
         {if !empty($fotorama_log_history.tags_string)}tags_string:"{$fotorama_log_history.tags_string}",{/if}
