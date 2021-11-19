@@ -278,7 +278,7 @@ function Fotorama_end_picture()
     array(
       'cat_id' => @$page['category']['id'],
       'section' => @$page['section'],
-      'tags_string' => @implode(',', @$page['tag_ids']),
+      'tags_string' => (isset($page['tag_ids']) ? implode(',', $page['tag_ids']) : ''),
       )
     );
 }
