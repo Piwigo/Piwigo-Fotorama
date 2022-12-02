@@ -230,6 +230,8 @@ url: "{$thumbnail.url}"
   });
   {/if}
   {if $Fotorama.info_button}
+  jQuery('a.fotorama__info-icon').attr('href',
+    window.location.href+(window.location.href.indexOf('?')==-1 ? '?' : '&')+'slidestop=');
   jQuery('.fotorama').on('fotorama:ready', function (e, fotorama) {
     jQuery('.fotorama__info-icon').detach().insertAfter('.fotorama__fullscreen-icon');
   });
