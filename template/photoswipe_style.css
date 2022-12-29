@@ -15,3 +15,13 @@
     background-size: 32px 32px !important;
   }
 }
+
+/* Based on CC-BY 3.0 licence by https://delapouite.com/
+ * https://game-icons.net/1x1/delapouite/contract.html
+ * https: //game-icons.net/1x1/delapouite/expand.html
+ * (Removed black background and added a black border)
+ */
+.pswp__button--fullscreen {
+  background: url(../template/expand.svg) center no-repeat !important;
+  background-size: 30px !important;
+}

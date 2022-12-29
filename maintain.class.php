@@ -10,6 +10,7 @@ class Fotorama_maintain extends PluginMaintain
     'mobile_backend' => 'fotorama',
     'desktop_backend' => 'fotorama',
     'allowfullscreen' => 'native',
+    'photoswipe_allowfullscreen' => true,
     'fit' => 'scaledown',
     'transition' => 'slide',
     'shadows' => false,

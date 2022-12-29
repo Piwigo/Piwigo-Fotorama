@@ -53,6 +53,28 @@ window.onload = () => {
     });
     {/if}
 
+    {if $Fotorama.photoswipe_allowfullscreen}
+    // No native support for full screen in PhotoSwipe, and it's simple enough
+    // to add it ourselves to avoid an extra dependency such as
+    // https://github.com/arnowelzel/photoswipe-fullscreen
+    pswp.ui.registerElement({
+      name: 'fullscreen',
+      ariaLabel: 'Full Screen',
+      order: 8,
+      isButton: true,
+      onClick: (event, el) => {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+          el.style.setProperty('background-image', 'url(plugins/Fotorama/template/contract.svg)', 'important');
+        } else {
+          document.exitFullscreen();
+          el.style.setProperty('background-image', 'url(plugins/Fotorama/template/expand.svg)', 'important');
+        }
+      }
+    });
+    {/if}
+  });
+
   // Update the URL when the image changes
   pswp.on('change', () => {
     const url = pswp.currSlide.data.url;

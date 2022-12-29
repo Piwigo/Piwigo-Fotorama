@@ -25,6 +25,7 @@ if (isset($_POST['submit']))
     'info_button' => isset($_POST['info_button']),
     'photoswipe_info_button' => isset($_POST['photoswipe_info_button']),
     'square_thumb' => isset($_POST['square_thumb']),
+    'photoswipe_allowfullscreen' => isset($_POST['photoswipe_allowfullscreen']),
     );
   if (isset($_POST['mobile_backend']))
     $conf['Fotorama']['mobile_backend'] = $_POST['mobile_backend'];
