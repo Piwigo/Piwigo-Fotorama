@@ -7,6 +7,8 @@ class Fotorama_maintain extends PluginMaintain
   private $installed = false;
 
   private $default_conf = array(
+    'mobile_backend' => 'fotorama',
+    'desktop_backend' => 'fotorama',
     'allowfullscreen' => 'native',
     'fit' => 'scaledown',
     'transition' => 'slide',

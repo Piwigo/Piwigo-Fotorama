@@ -25,6 +25,14 @@ if (isset($_POST['submit']))
     'info_button' => isset($_POST['info_button']),
     'square_thumb' => isset($_POST['square_thumb']),
     );
+  if (isset($_POST['mobile_backend']))
+    $conf['Fotorama']['mobile_backend'] = $_POST['mobile_backend'];
+  else
+    $conf['Fotorama']['mobile_backend'] = $old_conf['Fotorama']['mobile_backend'];
+  if (isset($_POST['desktop_backend']))
+    $conf['Fotorama']['desktop_backend'] = $_POST['desktop_backend'];
+  else
+    $conf['Fotorama']['desktop_backend'] = $old_conf['Fotorama']['desktop_backend'];
   if (isset($_POST['allowfullscreen']))
     $conf['Fotorama']['allowfullscreen'] = $_POST['allowfullscreen'];
   else
