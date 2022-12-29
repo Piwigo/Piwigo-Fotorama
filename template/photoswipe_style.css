@@ -1,0 +1,6 @@
+.pswp__scroll-wrap {
+  /* Photoswipe normally makes this semi-transparent, but our slideshow
+   * is ran on its own page, so there's nothing interesting to see behind.
+   */
+  background: black;
+}

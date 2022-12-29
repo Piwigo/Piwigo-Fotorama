@@ -4,8 +4,51 @@
 
 <form action="" method="post" class="properties">
 
+<fieldset id="Global">
+<legend>{'Global configuration'|translate}</legend>
+  {'The Fotorama plugin can use two different options (called "backend") to render the slide show:
+  <ul>
+  <li><a href="https://fotorama.io/">Fotorama</a>, originally the only available with this plugin, has many advanced features like the ability to display thumbnails at the bottom of the slideshow. Its main disadvantage is that it does not support zooming in full screen mode. It is unsupported since 2019, hence new features should not be expected in the future.
+  </li>
+  <li><a href="https://photoswipe.com/">PhotoSwipe</a>, a similar tool with better support for mobile devices, which allows in particular zooming (pinch-to-zoom on mobile devices, as most users expect). The plugin currently does not support video using this backend.
+  </li>
+  </ul>
+  A nice configuration is to pick Fotorama for desktop devices and PhotoSwipe for mobile devices, but the choice is yours.'|translate}
+  <div style="height: 1ex"></div>
+  <ul>
+  <li>
+    <label for="desktop_backend">
+      <b>{'Backend for desktop:'|translate}</b>
+    </label>
+    <select class="categoryDropDown" id="desktop_backend" name="desktop_backend">
+      <option value="fotorama" {if $Fotorama.desktop_backend == 'fotorama'} selected{/if}>{'Fotorama'|translate}
+      </option>
+      <option value="photoswipe" {if $Fotorama.desktop_backend == 'photoswipe'} selected{/if}>{'PhotoSwipe'|translate}
+      </option>
+    </select>
+    </li>
+    <li>
+    <label for="mobile_backend">
+      <b>{'Backend for mobile:'|translate}</b>
+    </label>
+    <select class="categoryDropDown" id="mobile_backend" name="mobile_backend">
+      <option value="fotorama" {if $Fotorama.mobile_backend == 'fotorama'} selected{/if}>{'Fotorama'|translate}
+      </option>
+      <option value="photoswipe" {if $Fotorama.mobile_backend == 'photoswipe'} selected{/if}>{'PhotoSwipe'|translate}
+      </option>
+    </select>
+  </li>
+  <li>
+      <input type="checkbox" id="replace_picture" name="replace_picture" {if $Fotorama.replace_picture}
+        checked="checked" {/if}>
+      <label for="replace_picture">
+        <b>{'Replace picture page'|translate}</b>
+      </label>
+  </li>
+</ul>
+</fieldset>
 <fieldset id="Fotorama">
-<legend>{'Configuration'|translate}</legend>
+<legend>{'Fotorama settings'|translate}</legend>
 <ul>
   <li>
     <label for="allowfullscreen">
@@ -139,12 +182,6 @@
       <option value="title"{if $Fotorama.enable_caption_with == 'title'} selected="selected"{/if}>{'title'|translate}</option>
       <option value="comment"{if $Fotorama.enable_caption_with == 'comment'} selected="selected"{/if}>{'description'|translate}</option>
     </select>
-  </li>
-  <li>
-    <input type="checkbox" id="replace_picture" name="replace_picture"{if $Fotorama.replace_picture} checked="checked"{/if}>
-    <label for="replace_picture">
-      <b>{'Replace picture page'|translate}</b>
-    </label>
   </li>
   <li>
     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="replace_picture_only_users" name="replace_picture_only_users"{if $Fotorama.replace_picture_only_users} checked="checked"{/if}>
