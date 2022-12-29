@@ -211,6 +211,10 @@
 
 {footer_script require='jquery'}{literal}
   function update_Fotorama_state() {
+    jQuery('#Fotorama').prop('disabled',
+      !(jQuery('#mobile_backend').val() == "fotorama" || jQuery('#desktop_backend').val() == "fotorama"));
+    jQuery('#Photoswipe').prop('disabled',
+      !(jQuery('#mobile_backend').val() == "photoswipe" || jQuery('#desktop_backend').val() == "photoswipe"));
     if (jQuery('#allowfullscreen').val() == "false") {
       jQuery('#only_fullscreen').prop('disabled', true);
       jQuery('#only_fullscreen').removeAttr('checked');
@@ -284,6 +288,12 @@
     update_Fotorama_state();
   });
   jQuery('#enable_caption').change(function() {
+    update_Fotorama_state();
+  });
+  jQuery('#mobile_backend').change(function() {
+    update_Fotorama_state();
+  });
+  jQuery('#desktop_backend').change(function() {
     update_Fotorama_state();
   });
 {/literal}{/footer_script}
