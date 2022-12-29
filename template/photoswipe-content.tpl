@@ -36,6 +36,23 @@ window.onload = () => {
     location.replace("{$U_SLIDESHOW_STOP}");
   });
 
+  pswp.on('uiRegister', function() {
+    {if $Fotorama.photoswipe_info_button}
+    // Add the 'info' button that adds &slidestop= to the current URL, to
+    // stop the slideshow and show the image's details page.
+    pswp.ui.registerElement({
+      name: 'info',
+      ariaLabel: 'Info',
+      order: 9,
+      isButton: true,
+      onClick: () => {
+        const url = pswp.currSlide.data.url;
+        const stopURL = url + (url.indexOf('?')==-1 ? '?' : '&') + 'slidestop=';
+        location.replace(stopURL);
+      }
+    });
+    {/if}
+
   // Update the URL when the image changes
   pswp.on('change', () => {
     const url = pswp.currSlide.data.url;

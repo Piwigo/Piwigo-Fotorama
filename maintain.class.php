@@ -29,6 +29,7 @@ class Fotorama_maintain extends PluginMaintain
     'resize' => false,
     'period' => 4000,
     'info_button' => false,
+    'photoswipe_info_button' => false,
     'square_thumb' => true,
   );
 
