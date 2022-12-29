@@ -191,6 +191,17 @@
   </li>
 </ul>
 </fieldset>
+<fieldset id="Photoswipe">
+  <legend>{'PhotoSwipe settings'|translate}</legend>
+  <ul>
+    <li>
+      <input type="checkbox" id="photoswipe_info_button" name="photoswipe_info_button" {if $Fotorama.photoswipe_info_button} checked="checked" {/if}>
+      <label for="photoswipe_info_button">
+        <b>{'Add image info button'|translate}</b>
+      </label>
+    </li>
+  </ul>
+</fieldset>
 
 <p class="formButtons">
   <input type="hidden" name="pwg_token" value="{$PWG_TOKEN}">
