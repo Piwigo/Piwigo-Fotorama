@@ -200,6 +200,12 @@
         <b>{'Add image info button'|translate}</b>
       </label>
     </li>
+    <li>
+      <input type="checkbox" id="photoswipe_allowfullscreen" name="photoswipe_allowfullscreen" {if $Fotorama.photoswipe_allowfullscreen} checked="checked" {/if}>
+      <label for="photoswipe_allowfullscreen">
+        <b>{'Allows fullscreen'|translate}</b>
+      </label>
+    </li>
   </ul>
 </fieldset>
 
