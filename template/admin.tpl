@@ -210,7 +210,6 @@
 </fieldset>
 
 <p class="formButtons">
-  <input type="hidden" name="pwg_token" value="{$PWG_TOKEN}">
   <input type="submit" name="submit" value="{'Save Settings'|translate}">
 </p>
 </form>
