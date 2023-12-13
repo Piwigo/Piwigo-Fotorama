@@ -51,6 +51,13 @@ class Fotorama_maintain extends PluginMaintain
     else
     {
       $new_conf = is_string($conf['Fotorama']) ? unserialize($conf['Fotorama']) : $conf['Fotorama'];
+      foreach ($this->default_conf as $conf_key => $conf_value)
+      {
+        if (!isset($new_conf[$conf_key]))
+        {
+          $new_conf[$conf_key] = $conf_value;
+        }
+      }
 
       $conf['Fotorama'] = serialize($new_conf);
       conf_update_param('Fotorama', $conf['Fotorama']);
